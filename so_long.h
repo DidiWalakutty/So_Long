@@ -24,7 +24,9 @@
 
 typedef struct s_map
 {
-}
+    char	**contents;
+
+}	t_map
 
 int32_t main(int32_t argc, const char* argv[]);
 // Map Functions
