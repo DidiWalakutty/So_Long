@@ -6,22 +6,25 @@
 #    By: diwalaku <diwalaku@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/27 18:11:18 by diwalaku      #+#    #+#                  #
-#    Updated: 2023/07/28 21:13:32 by diwalaku      ########   odam.nl          #
+#    Updated: 2023/07/31 17:29:05 by diwalaku      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = so_long
-CC = gcc
-GFLAGS = -Wall -Werror -Wextra
-SRCDIR = src/
-OBJDIR = obj/
+NAME 	= 		so_long
+CC 		= 		gcc
+GFLAGS	= 	-Wall -Werror -Wextra
+SRCDIR 	= 	src/
+OBJDIR 	= 	obj/
 
-SRCFILES = main.c
+SRCFILES = main.c map_generator.c map_utils.c map_validator.c \
+			free_and_error.c
+
+
 SRCOBJ = $(SRCFILES:%.c=$(OBJDIR)%.o)
 
-LIBMLX = ./MLX42/build
-LIBFT = ./libft
-HEADERS = -I so_long.h -I $(LIBMLX)/include -I $(LIBFT)/headers
+LIBMLX = 	./MLX42/build
+LIBFT = 	./libft
+HEADERS = 	-I so_long.h -I $(LIBMLX)/include -I $(LIBFT)/headers
 
 .PHONY: all libft libmlx clean fclean re
 

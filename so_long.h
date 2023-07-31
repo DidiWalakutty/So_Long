@@ -25,16 +25,40 @@
 typedef struct s_map
 {
     char	**contents;
+	char	**copy_content;
+	int		width_x;
+	int		height_y;
+	int		count_p;
+	int		count_c;
+	int		count_e;
+	int		player_pos_x;
+	int		player_pos_y;
+	int		steps;
+}	t_map;
 
-}	t_map
+// Base
+int		main(int argc, char **argv); 
 
-int32_t main(int32_t argc, const char* argv[]);
 // Map Functions
+int		receive_map(int argc, char **argv);
+char	**process_map(int fd);
+void	initialize_map(t_map *map);
+
+// Map Validation
+bool	validate_map(t_map *map);
+size_t	row_count(char **grid);
+bool	check_walls_and_chars(t_map *map);
+bool	check_rectangle(t_map *map);
+bool	check_horizontal(t_map *map);
+bool	check_vertical(t_map *map);
+void	check_chars(t_map *map);
 
 // Image Functions
 
 // Move Functions
 
-// Map Validation
+// Free and Errors
+void	exit_error(char *str);
+
 
 #endif
