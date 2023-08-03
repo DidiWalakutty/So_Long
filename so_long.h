@@ -46,12 +46,17 @@ void	initialize_map(t_map *map);
 
 // Map Validation
 bool	validate_map(t_map *map);
-size_t	row_count(char **grid);
 bool	check_walls_and_chars(t_map *map);
 bool	check_rectangle(t_map *map);
 bool	check_horizontal(t_map *map);
 bool	check_vertical(t_map *map);
 void	check_chars(t_map *map);
+
+// Create Map
+void	find_player_position(t_map *map);
+char 	**duplicate_map(char **);
+char	**floodfill(t_map *map, int x_pos, int y_pos);
+int		after_floodfille(char **checked);
 
 // Image Functions
 
