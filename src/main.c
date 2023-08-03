@@ -12,6 +12,7 @@
 
 #include "../so_long.h"
 
+
 int	main(int argc, char **argv)
 {
 	t_map	map;
@@ -25,4 +26,5 @@ int	main(int argc, char **argv)
 		return (0);
 	if (validate_map(&map) == false)
 		exit_error("Couldn't validate map");
+	
 }

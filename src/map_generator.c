@@ -12,6 +12,13 @@
 
 #include "../so_long.h"
 
+// This function checks the argc, opens the fd
+// and checks if there's a .ber file given
+// strncmp compares argv[i] on position strlen - 4
+// so points to the last 4 chars of argv[i].
+// It searches for ".ber". If it returns 0,
+// the ".ber" has been found, if it != 0,
+// those 4 chars don't match ".ber"
 int	receive_map(int argc, char **argv)
 {
 	int	fd;
@@ -19,11 +26,11 @@ int	receive_map(int argc, char **argv)
 
 	i = 0;
 	if (argc != 2)
-		exit_error("Argument count should be 2.");
+		exit_error("There should only be 2 arguments");
 	fd = open(argv[i], O_RDONLY);
 	if (fd <= 0)
 		exit_error("Couldn't open file.");
-	if (ft_strncmp(argv[i] + ft_strlen(argv[1]) - 4, ".ber", 4))
+	if ((ft_strncmp(argv[i] + ft_strlen(argv[1]) - 4, ".ber", 4)) != 0)
 		exit_error("This is not a .ber file.");
 	return (fd);
 }
@@ -38,22 +45,25 @@ static char	*add_to_map(char *s1, char *s2)
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	totallen = len1 + len2;
-	new = ft_calloc(sizeof(char), (totallen + 1));
+	new = ft_calloc(totallen + 1), sizeof(char);
 	if (!new)
 	{
 		free(s1);
 		free(s2);
 		return (NULL);
 	}
-	ft_strlcpy(new, s1, len1 + 1);
-	ft_strlcat(new + len1, s2, len2 + 1);
+	copy_str(s1, s2);
+	copy_str(&s1[len1], s2);
+	//ft_strlcpy(new, s1, len1 + 1);
+	//ft_strlcat(new + len1, s2, len2 + 1);
 	free(s1);
 	free(s2);
 	return (new);
 }
 
-// **char represents a 2D array map/grid and will use
-// X-rows and Y-columns 
+// **result represents a 2D array map/grid and will use
+// X-rows and Y-columns. Each row is filled with gnl.
+// We add each row to the map and split it on each \n.
 char	**process_map(int fd)
 {
 	char	*map;

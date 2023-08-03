@@ -24,7 +24,7 @@ bool	check_walls_and_chars(t_map *map)
 	return (true);
 }
 
-size_t	row_count(char **grid)
+static size_t	row_count(char **grid)
 {
 	size_t	y;
 
@@ -46,13 +46,28 @@ void	initialize_map(t_map *map)
 	map->steps = 0;
 }
 
+// This functions checks if the map
+// is rectangular, is surrounded with walls,
+// and has the right chars.
+// It initializes the map first, so it knows
+// the height and width of the map
 bool	validate_map(t_map *map)
 {
-	int	i;
+	char	**map_copy;
+	char	**floodfill_check;
 
-	i = 0;
 	initialize_map(map);
-	if (check_walls_and_chars(map) == false)
-		return (0);
+	if (check_rectangle(map) == false)
+		exit_error("This map is not rectangular!");
+	if (check_horizontal(map) == false)
+		exit_error("The map isn't surrounded with walls.");
+	if (check_vertical(map) == false)
+		exit_error("The map isn't surrounded with walls.");
+	check_chars(map);
+	player_position(map);
+	map_copy = duplicate_map(char **map_copy);
+	floodfill_check = floodfill(map_copy, map->player_pos_x, map->player_pos_y);
+	if (after_floodfill(floodfill_check != 'T'))
+	// if ! floodfill
 	return (true);
 }

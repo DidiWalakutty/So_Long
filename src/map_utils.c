@@ -18,6 +18,11 @@ static void	check_invalids(char c)
 		exit_error("This is not a valid character");
 }
 
+// It sets len to the length of the first row in map.
+// We check each contents[i]/row on it's length
+// compare it with len.
+// If it's not the same, it's not rectangular.
+// As long as it has four right angles, we're good.
 bool	check_rectangle(t_map *map)
 {
 	int	i;
@@ -34,6 +39,11 @@ bool	check_rectangle(t_map *map)
 	return (true);
 }
 
+// This function checks if the upper and lower
+// horizontal rows are '1's only.
+// height_y - 1, because of array index 0.
+// Checks the positions in different rows
+// simultaneously per iterations.
 bool	check_horizontal(t_map *map)
 {
 	size_t	i;
@@ -50,6 +60,11 @@ bool	check_horizontal(t_map *map)
 	return (true);
 }
 
+// This functions checks if the first and last
+// vertical rows are '1's only.
+// width_x - 1, because of array index 0.
+// Checks the positions in different rows
+// simultaneously per iterations
 bool	check_vertical(t_map *map)
 {
 	size_t	i;
@@ -66,6 +81,11 @@ bool	check_vertical(t_map *map)
 	return (true);
 }
 
+// This functions counts how many CEP's
+// are found and if they have a max or min
+// of player-pos, exit and collectibles.
+// Also checks if the other chars are only
+// allowed chars.
 void	check_chars(t_map *map)
 {
 	int	i;
@@ -79,9 +99,9 @@ void	check_chars(t_map *map)
 		{
 			if (map->contents[i][x] == 'C')
 				map->count_c += 1;
-			if (map->contents[i][x] == 'E')
+			else if (map->contents[i][x] == 'E')
 				map->count_e += 1;
-			if (map->contents[i][x] == 'P')
+			else if (map->contents[i][x] == 'P')
 				map->count_p += 1;
 			else
 				check_invalids(map->contents[i][x]);
