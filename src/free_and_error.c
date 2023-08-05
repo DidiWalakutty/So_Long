@@ -18,7 +18,6 @@ void	exit_error(char *str)
 	exit(EXIT_FAILURE);
 }
 
-// needed?
 void	free_complete_map(char **map)
 {
 	int	i;

@@ -25,7 +25,7 @@
 	typedef struct s_map
 	{
 		char	**contents;
-		char	**copy_content;
+		char	**map_copy;
 		int		width_x;
 		int		height_y;
 		int		count_p;
@@ -46,16 +46,16 @@ void	initialize_map(t_map *map);
 
 // Map Validation
 bool	validate_map(t_map *map);
-bool	check_walls_and_chars(t_map *map);
 bool	check_rectangle(t_map *map);
-bool	check_horizontal(t_map *map);
-bool	check_vertical(t_map *map);
+bool	check_horizontal_walls(t_map *map);
+bool	check_vertical_walls(t_map *map);
 void	check_chars(t_map *map);
-
-// Create Map
 void	find_player_position(t_map *map);
 char	**duplicate_map(t_map *map);
 char	**floodfill(char **copy_map, int x_pos, int y_pos);
+bool	valid_path(char **checked);
+
+// Create Map
 // int		after_floodfill(char **checked);
 
 
