@@ -24,14 +24,13 @@ static size_t	row_count(char **grid)
 
 void	initialize_map(t_map *map)
 {
-map->width_x = ft_strlen(map->contents[0]);
-map->height_y = row_count(map->contents);
-map->count_p = 0;
-map->count_c = 0;
-map->count_e = 0;
-map->player_pos_x = 0;
-map->player_pos_y = 0;
-map->steps = 0;
+	map->width_x = ft_strlen(map->contents[0]);
+	map->height_y = row_count(map->contents);
+	map->count_p = 0;
+	map->count_c = 0;
+	map->count_e = 0;
+	map->player_pos_x = 0;
+	map->player_pos_y = 0;
 }
 
 // This functions checks if the map
@@ -41,8 +40,8 @@ map->steps = 0;
 // the height and width of the map
 bool	validate_map(t_map *map)
 {
-	char	**floodfill_map;
-	char	**floodfill_check;
+	char	**flood_map;
+	char	**flood_check;
 
 	initialize_map(map);
 	if (check_rectangle(map) == false)
@@ -53,11 +52,11 @@ bool	validate_map(t_map *map)
 		exit_error("The map isn't surrounded with walls.");
 	check_chars(map);
 	find_player_position(map);
-	floodfill_map = duplicate_map(map);
-	floodfill_check = floodfill(floodfill_map, map->player_pos_x, map->player_pos_y);
-	if (valid_path(floodfill_check) == false)
+	flood_map = duplicate_map(map);
+	flood_check = floodfill(flood_map, map->player_pos_x, map->player_pos_y);
+	if (valid_path(flood_check) == false)
 	{
-		free_complete_map(floodfill_check);
+		free_complete_map(flood_check);
 		exit_error("Couldn't find a valid path.");
 	}
 	return (true);
