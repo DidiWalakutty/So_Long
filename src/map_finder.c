@@ -111,4 +111,5 @@ bool	valid_path(char **checked)
 		}
 		y++;
 	}
+	return (true);
 }

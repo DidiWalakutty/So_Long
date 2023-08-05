@@ -12,9 +12,21 @@
 
 #include "../so_long.h"
 
+// difference between map.game and map->game:
+//
+// map.game reaches directly in the box "map" and
+// grabbing what's in the "game" department.
+//
+// map->game points to the box "map" and says:
+// go to the "game" compartment and find what's
+// inside it.
+//
+// Use '&' when you want a function to modify 
+// the value of a variable and pass it by reference.
 int	main(int argc, char **argv)
 {
 	t_map	map;
+	t_game	images;
 	int		fd;
 	int		i;
 
@@ -27,4 +39,7 @@ int	main(int argc, char **argv)
 		return (0);
 	if (validate_map(&map) == false)
 		exit_error("Couldn't validate map");
+	if (initialize_window(&map, map.game) == false)
+		free_complete_map(map.contents);
+	images = load_images(map.mlx);
 }

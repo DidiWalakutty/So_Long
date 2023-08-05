@@ -66,7 +66,7 @@ char	**process_map(int fd)
 {
 	char	*map;
 	char	*row;
-	char	**result;
+	char	**parsed;
 
 	map = NULL;
 	row = NULL;
@@ -81,9 +81,9 @@ char	**process_map(int fd)
 	}
 	if (map == NULL)
 		exit_error("Unable to read and create map");
-	result = ft_split(map, '\n');
+	parsed = ft_split(map, '\n');
 	free(map);
-	if (!result)
+	if (!parsed)
 		exit_error("Couldn't split on newline");
-	return (result);
+	return (parsed);
 }
