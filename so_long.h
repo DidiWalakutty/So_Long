@@ -22,19 +22,19 @@
 # include <memory.h>
 # include <time.h>
 
-typedef struct s_map
-{
-    char	**contents;
-	char	**copy_content;
-	int		width_x;
-	int		height_y;
-	int		count_p;
-	int		count_c;
-	int		count_e;
-	int		player_pos_x;
-	int		player_pos_y;
-	int		steps;
-}	t_map;
+	typedef struct s_map
+	{
+		char	**contents;
+		char	**copy_content;
+		int		width_x;
+		int		height_y;
+		int		count_p;
+		int		count_c;
+		int		count_e;
+		int		player_pos_x;
+		int		player_pos_y;
+		int		steps;
+	}	t_map;
 
 // Base
 int		main(int argc, char **argv); 
@@ -54,9 +54,10 @@ void	check_chars(t_map *map);
 
 // Create Map
 void	find_player_position(t_map *map);
-char 	**duplicate_map(char **);
-char	**floodfill(t_map *map, int x_pos, int y_pos);
-int		after_floodfille(char **checked);
+char	**duplicate_map(t_map *map);
+char	**floodfill(char **copy_map, int x_pos, int y_pos);
+// int		after_floodfill(char **checked);
+
 
 // Image Functions
 

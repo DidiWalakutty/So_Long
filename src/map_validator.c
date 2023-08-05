@@ -64,10 +64,10 @@ bool	validate_map(t_map *map)
 	if (check_vertical(map) == false)
 		exit_error("The map isn't surrounded with walls.");
 	check_chars(map);
-	player_position(map);
-	map_copy = duplicate_map(char **map_copy);
+	find_player_position(map);
+	map_copy = duplicate_map(map);
 	floodfill_check = floodfill(map_copy, map->player_pos_x, map->player_pos_y);
-	if (after_floodfill(floodfill_check != 'T'))
+	//if (after_floodfill(floodfill_check != 'T'))
 	// if ! floodfill
 	return (true);
 }

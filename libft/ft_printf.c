@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/30 19:05:35 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/07/28 16:14:24 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/05 11:27:54 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_printf(const char *frmt, ...)
 	while (frmt[i])
 	{
 		if (frmt[i] == '%' && frmt[i + 1])
-		{	
+		{
 			i++;
 			value += convert(arg, frmt[i]);
 		}

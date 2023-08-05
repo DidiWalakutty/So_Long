@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 18:27:25 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/07/28 16:12:40 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/05 11:28:21 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,13 @@ void	manage_buffer(char *dst, char *src);
 void	copy_str(char *dst, char *src);
 void	*gnl_ft_calloc(size_t count, size_t size);
 
-int	ft_printf(const char *format, ...);
-int	print_char(char c);
-int	print_str(char *s);
-int	print_nbr(int n);
-int	print_uns_dec(unsigned int n);
-int	print_lowerhex(unsigned long n);
-int	print_upperhex(unsigned int n);
-int	print_pointer(unsigned long ptr);
+int		ft_printf(const char *format, ...);
+int		print_char(char c);
+int		print_str(char *s);
+int		print_nbr(int n);
+int		print_uns_dec(unsigned int n);
+int		print_lowerhex(unsigned long n);
+int		print_upperhex(unsigned int n);
+int		print_pointer(unsigned long ptr);
 
 #endif

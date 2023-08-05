@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/01/21 22:05:13 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/07/28 16:09:46 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/05 11:28:04 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*read_and_join(int fd, char *buffer, char *line)
 			return (NULL);
 	}
 	while (!find_newline(buffer) && read_bytes != 0)
-	{	
+	{
 		read_bytes = read(fd, buffer, BUFFER_SIZE);
 		if (read_bytes == -1)
 		{
