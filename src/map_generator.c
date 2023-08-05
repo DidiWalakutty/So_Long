@@ -35,6 +35,8 @@ int	receive_map(int argc, char **argv)
 	return (fd);
 }
 
+	//ft_strlcpy(new, s1, len1 + 1);
+	//ft_strlcat(new + len1, s2, len2 + 1);
 static char	*add_to_map(char *s1, char *s2)
 {
 	char	*new;
@@ -45,7 +47,7 @@ static char	*add_to_map(char *s1, char *s2)
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	totallen = len1 + len2;
-	new = ft_calloc(totallen + 1), sizeof(char);
+	new = ft_calloc((totallen + 1), sizeof(char));
 	if (!new)
 	{
 		free(s1);
@@ -54,8 +56,6 @@ static char	*add_to_map(char *s1, char *s2)
 	}
 	copy_str(s1, s2);
 	copy_str(&s1[len1], s2);
-	//ft_strlcpy(new, s1, len1 + 1);
-	//ft_strlcat(new + len1, s2, len2 + 1);
 	free(s1);
 	free(s2);
 	return (new);

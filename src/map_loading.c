@@ -1,4 +1,14 @@
-#HEADER
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   map_loading.c                                      :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: diwalaku <diwalaku@student.codam.nl>         +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2023/08/05 10:43:56 by diwalaku      #+#    #+#                 */
+/*   Updated: 2023/08/05 10:43:56 by diwalaku      ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "../so_long.h"
 
@@ -18,8 +28,8 @@ void	find_player_position(t_map *map)
 		{
 			if (map->contents[y][x] == 'P')
 			{
-				map->player_pos_x == x;
-				map->player_pos_y == y;
+				map->player_pos_x = x;
+				map->player_pos_y = y;
 				return ;
 			}
 			x++;
@@ -30,13 +40,13 @@ void	find_player_position(t_map *map)
 
 // Copy the map to check for floodfill.
 // Create a 2D array, so **.
-char	**duplicate_map(char **)
+char	**duplicate_map(t_map *map)
 {
 	char	**copy;
 	int		x;
 
 	x = 0;
-	copy = (char **)ft_calloc((map->heigth_y + 1), sizeof(char *));
+	copy = (char **)ft_calloc((map->height_y + 1), sizeof(char *));
 	if (!copy)
 		exit_error("Couldn't calloc copy of map");
 	while (map->contents[x])
@@ -48,7 +58,7 @@ char	**duplicate_map(char **)
 	return (copy);
 }
 
-static bool	walkable(t_map *map, int x_pos, int y_pos)
+static bool	walkable(char **map, int x, int y)
 {
 	if (map[y][x] == 'P' || map[y][x] == 'C' || \
 	map[y][x] == 'E' || map[y][x] == '0')
@@ -63,34 +73,34 @@ static bool	walkable(t_map *map, int x_pos, int y_pos)
 // 4 directionally. When it's done, all cells that aren't
 // '1' will be marked with 'T' (for true).
 // All non-walkable/'1' cells are left untouched.
-char	**floodfill(t_map *map, int x_pos, int y_pos)
+char	**floodfill(char **copy_map, int x_pos, int y_pos)
 {
-	if (map[y][x] != '1')
+	if (copy_map[y_pos][x_pos] != '1')
 	{
-		if (walkable(map, x_pos, y_pas) == true)
-			map[y][x] == 'T';
+		if (walkable(copy_map, x_pos, y_pos) == true)
+			copy_map[y_pos][x_pos] = 'T';
 		else
-			return (map);
-		floodfill(map, x_pos + 1, y_pos);
-		floodfill(map, x_pos - 1, y_pos);
-		floodfill(map, x_pos, y_pos + 1);
-		floodfill(map, x_pos, y_pos - 1);
+			return (copy_map);
+		floodfill(copy_map, x_pos + 1, y_pos);
+		floodfill(copy_map, x_pos - 1, y_pos);
+		floodfill(copy_map, x_pos, y_pos + 1);
+		floodfill(copy_map, x_pos, y_pos - 1);
 	}
-	return (map);
+	return (copy_map);
 }
 
-int	after_floodfille(char **checked)
-{
-	int	x;
-	int	y;
+// int	after_floodfill(char **checked)
+// {
+// 	int	x;
+// 	int	y;
 
-	y = 0;
-	while (checked[y])
-	{
-		x = 0;
-		while (checked[y][x])
-		{
+// 	y = 0;
+// 	while (checked[y])
+// 	{
+// 		x = 0;
+// 		while (checked[y][x])
+// 		{
 
-		}
-	}
-}
+// 		}
+// 	}
+// }

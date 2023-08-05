@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/11/21 18:48:18 by diwalaku      #+#    #+#                 */
-/*   Updated: 2022/11/23 15:45:53 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/05 11:27:32 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	get_len(int x)
 	{
 		x *= -1;
 		count++;
-	}	
+	}
 	while (x != 0)
 	{
 		x /= 10;
@@ -49,7 +49,7 @@ char	*ft_itoa(int i)
 	{
 		str[0] = '-';
 		i *= -1;
-	}	
+	}
 	while (i != 0)
 	{
 		str[len] = (i % 10) + '0';
