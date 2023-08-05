@@ -29,7 +29,7 @@ bool	check_rectangle(t_map *map)
 	int	len;
 
 	i = 0;
-	len = ft_strlen(map->contents[i]);
+	len = map->width_x;
 	while (map->contents[i])
 	{
 		if (ft_strlen(map->contents[i]) != len)
@@ -44,7 +44,7 @@ bool	check_rectangle(t_map *map)
 // height_y - 1, because of array index 0.
 // Checks the positions in different rows
 // simultaneously per iterations.
-bool	check_horizontal(t_map *map)
+bool	check_horizontal_walls(t_map *map)
 {
 	size_t	i;
 
@@ -65,7 +65,7 @@ bool	check_horizontal(t_map *map)
 // width_x - 1, because of array index 0.
 // Checks the positions in different rows
 // simultaneously per iterations
-bool	check_vertical(t_map *map)
+bool	check_vertical_walls(t_map *map)
 {
 	size_t	i;
 
@@ -85,7 +85,7 @@ bool	check_vertical(t_map *map)
 // are found and if they have a max or min
 // of player-pos, exit and collectibles.
 // Also checks if the other chars are only
-// allowed chars.
+// allowed chars. Set i to 1, because 0 is 1's only
 void	check_chars(t_map *map)
 {
 	int	i;

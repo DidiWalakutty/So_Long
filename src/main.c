@@ -19,6 +19,8 @@ int	main(int argc, char **argv)
 	int		i;
 
 	i = 0;
+	if (argc != 2)
+		exit_error("There should only be 2 arguments");
 	fd = receive_map(argc, argv);
 	map.contents = process_map(fd);
 	if (!map.contents)

@@ -25,8 +25,6 @@ int	receive_map(int argc, char **argv)
 	int	i;
 
 	i = 0;
-	if (argc != 2)
-		exit_error("There should only be 2 arguments");
 	fd = open(argv[i], O_RDONLY);
 	if (fd <= 0)
 		exit_error("Couldn't open file.");
@@ -37,7 +35,7 @@ int	receive_map(int argc, char **argv)
 
 	//ft_strlcpy(new, s1, len1 + 1);
 	//ft_strlcat(new + len1, s2, len2 + 1);
-static char	*add_to_map(char *s1, char *s2)
+static char	*add_row_to_map(char *s1, char *s2)
 {
 	char	*new;
 	int		len1;
@@ -77,7 +75,7 @@ char	**process_map(int fd)
 		row = get_next_line(fd);
 		if (row == NULL)
 			break ;
-		map = add_to_map(map, row);
+		map = add_row_to_map(map, row);
 		if (!map)
 			exit_error("Couldn't add row to map");
 	}

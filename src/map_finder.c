@@ -42,20 +42,23 @@ void	find_player_position(t_map *map)
 // Create a 2D array, so **.
 char	**duplicate_map(t_map *map)
 {
-	char	**copy;
 	int		x;
 
 	x = 0;
-	copy = (char **)ft_calloc((map->height_y + 1), sizeof(char *));
-	if (!copy)
+	map->map_copy = (char **)ft_calloc((map->height_y + 1), sizeof(char *));
+	if (!map->map_copy)
 		exit_error("Couldn't calloc copy of map");
 	while (map->contents[x])
 	{
-		copy[x] = ft_strdup(map->contents[x]);
+		map->map_copy[x] = ft_strdup(map->contents[x]);
+		if (!map->map_copy[x])
+		{
+			free_complete_map(map->map_copy);
+			exit_error("Couldn't copy contents to copy of map");
+		}
 		x++;
 	}
-	copy[x] = NULL;
-	return (copy);
+	return (map->map_copy);
 }
 
 static bool	walkable(char **map, int x, int y)
@@ -89,18 +92,23 @@ char	**floodfill(char **copy_map, int x_pos, int y_pos)
 	return (copy_map);
 }
 
-// int	after_floodfill(char **checked)
-// {
-// 	int	x;
-// 	int	y;
+// This function checks if the data from floodfill
+// contains 'T' from True, or '1's, walls only.
+bool	valid_path(char **checked)
+{
+	int	x;
+	int	y;
 
-// 	y = 0;
-// 	while (checked[y])
-// 	{
-// 		x = 0;
-// 		while (checked[y][x])
-// 		{
-
-// 		}
-// 	}
-// }
+	y = 0;
+	while (checked[y])
+	{
+		x = 0;
+		while (checked[y][x])
+		{
+			if (checked[y][x] != 'T' || checked[y][x] != '1')
+				return (false);
+			x++;
+		}
+		y++;
+	}
+}
