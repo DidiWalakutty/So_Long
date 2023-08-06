@@ -23,21 +23,25 @@
 # include <time.h>
 
 # define PIXELS 64
+# define SPRITE 32
 
 typedef struct s_game
 {
+	mlx_image_t		*wall;
+	// mlx_texture_t	*wall_t;
+	mlx_image_t		*playr;
+	// mlx_texture_t	*player_t;
+	mlx_image_t		*coll;
+	// mlx_texture_t	*collect_t;
+	mlx_image_t		*exit;
+	// mlx_texture_t	*exit_t;
+	mlx_image_t		*floor;
+	// mlx_texture_t	*floor_t;
 	int				steps;
-	int				collectables;
-	mlx_image_t		*wall_i;
-	mlx_texture_t	*wall_t;
-	mlx_image_t		*player_i;
-	mlx_texture_t	*player_t;
-	mlx_image_t		*collect_i;
-	mlx_texture_t	*collect_t;
-	mlx_image_t		*exit_i;
-	mlx_texture_t	*exit_t;
-	mlx_image_t		*floor_i;
-	mlx_texture_t	*floor_t;
+	int				player_x;
+	int				player_y;
+	int				dead;	
+	int				total_collect;
 }	t_game;
 
 typedef struct s_map
@@ -77,6 +81,7 @@ bool	valid_path(char **checked);
 // Create Window
 bool	initialize_window(t_map *map, t_game *game);	
 t_game	*load_images(mlx_t *mlx);
+void	fill_map(t_map *map, t_game *game);
 
 // Image Functions
 t_game	*load_wall_texture(mlx_t *mlx, t_game *img);
@@ -84,11 +89,17 @@ t_game	*load_floor_texture(mlx_t *mlx, t_game *img);
 t_game	*load_player_texture(mlx_t *mlx, t_game *img);
 t_game	*load_collectable_texture(mlx_t *mlx, t_game *img);
 t_game	*load_exit_texture(mlx_t *mlx, t_game *img);
+bool	place_walls(t_map *map, t_game *game);
+bool	place_player(t_map *map, t_game *game);
+bool	place_collectables(t_map *map, t_game *game);
+bool	place_exit(t_map *map, t_game *game);
+bool	place_floor(t_map *map, t_game *game);
 
 // Move Functions
 
 // Free and Errors
 void	exit_error(char *str);
 void	free_complete_map(char **map);
+void	free_image_resources(mlx_t *mlx, t_game *game);
 
 #endif
