@@ -22,19 +22,15 @@
 int	receive_map(int argc, char **argv)
 {
 	int	fd;
-	int	i;
 
-	i = 0;
-	fd = open(argv[i], O_RDONLY);
+	fd = open(argv[1], O_RDONLY);
 	if (fd <= 0)
 		exit_error("Couldn't open file.");
-	if ((ft_strncmp(argv[i] + ft_strlen(argv[1]) - 4, ".ber", 4)) != 0)
+	if ((ft_strncmp(argv[1] + ft_strlen(argv[1]) - 4, ".ber", 4)) != 0)
 		exit_error("This is not a .ber file.");
 	return (fd);
 }
 
-	//ft_strlcpy(new, s1, len1 + 1);
-	//ft_strlcat(new + len1, s2, len2 + 1);
 static char	*add_row_to_map(char *s1, char *s2)
 {
 	char	*new;
@@ -52,8 +48,8 @@ static char	*add_row_to_map(char *s1, char *s2)
 		free(s2);
 		return (NULL);
 	}
-	copy_str(s1, s2);
-	copy_str(&s1[len1], s2);
+	ft_strlcpy(new, s1, len1 + 1);
+	ft_strlcat(new + len1, s2, len2 + 1);
 	free(s1);
 	free(s2);
 	return (new);
