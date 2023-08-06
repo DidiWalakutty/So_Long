@@ -19,7 +19,7 @@ static void	check_invalids(char c)
 }
 
 // It sets len to the length of the first row in map.
-// We check each contents[i]/row on it's length
+// We check each data[i]/row on it's length
 // compare it with len.
 // If it's not the same, it's not rectangular.
 // As long as it has four right angles, we're good.
@@ -30,9 +30,9 @@ bool	check_rectangle(t_map *map)
 
 	i = 0;
 	len = map->width_x;
-	while (map->contents[i])
+	while (map->data[i])
 	{
-		if (ft_strlen(map->contents[i]) != len)
+		if (ft_strlen(map->data[i]) != len)
 			return (false);
 		i++;
 	}
@@ -49,11 +49,11 @@ bool	check_horizontal_walls(t_map *map)
 	size_t	i;
 
 	i = 0;
-	while (map->contents[0][i])
+	while (map->data[0][i])
 	{
-		if (map->contents[0][i] != '1')
+		if (map->data[0][i] != '1')
 			return (false);
-		if (map->contents[map->height_y - 1][i] != '1')
+		if (map->data[map->height_y - 1][i] != '1')
 			return (false);
 		i++;
 	}
@@ -70,11 +70,11 @@ bool	check_vertical_walls(t_map *map)
 	size_t	i;
 
 	i = 0;
-	while (map->contents[i][0])
+	while (map->data[i][0])
 	{
-		if (map->contents[i][0] != '1')
+		if (map->data[i][0] != '1')
 			return (false);
-		if (map->contents[i][map->width_x - 1] != '1')
+		if (map->data[i][map->width_x - 1] != '1')
 			return (false);
 		i++;
 	}
@@ -92,19 +92,19 @@ void	check_chars(t_map *map)
 	int	x;
 
 	i = 1;
-	while (map->contents[i])
+	while (map->data[i])
 	{
 		x = 0;
-		while (map->contents[i][x])
+		while (map->data[i][x])
 		{
-			if (map->contents[i][x] == 'C')
+			if (map->data[i][x] == 'C')
 				map->count_c += 1;
-			else if (map->contents[i][x] == 'E')
+			else if (map->data[i][x] == 'E')
 				map->count_e += 1;
-			else if (map->contents[i][x] == 'P')
+			else if (map->data[i][x] == 'P')
 				map->count_p += 1;
 			else
-				check_invalids(map->contents[i][x]);
+				check_invalids(map->data[i][x]);
 			x++;
 		}
 		i++;

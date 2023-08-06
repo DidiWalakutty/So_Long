@@ -42,7 +42,7 @@ typedef struct s_game
 
 typedef struct s_map
 {
-	char	**contents;
+	char	**data;
 	char	**map_copy;
 	int		width_x;
 	int		height_y;
@@ -76,7 +76,7 @@ bool	valid_path(char **checked);
 
 // Create Window
 bool	initialize_window(t_map *map, t_game *game);	
-t_game	load_images(mlx_t *mlx);
+t_game	*load_images(mlx_t *mlx);
 
 // Image Functions
 t_game	*load_wall_texture(mlx_t *mlx, t_game *img);

@@ -24,8 +24,8 @@ static size_t	row_count(char **grid)
 
 void	initialize_map(t_map *map)
 {
-	map->width_x = ft_strlen(map->contents[0]);
-	map->height_y = row_count(map->contents);
+	map->width_x = ft_strlen(map->data[0]);
+	map->height_y = row_count(map->data);
 	map->count_p = 0;
 	map->count_c = 0;
 	map->count_e = 0;

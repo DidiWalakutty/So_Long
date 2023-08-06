@@ -26,7 +26,7 @@
 int	main(int argc, char **argv)
 {
 	t_map	map;
-	t_game	images;
+	t_game	*images;
 	int		fd;
 	int		i;
 
@@ -34,12 +34,12 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		exit_error("There should only be 2 arguments");
 	fd = receive_map(argc, argv);
-	map.contents = process_map(fd);
-	if (!map.contents)
+	map.data = process_map(fd);
+	if (!map.data)
 		return (0);
 	if (validate_map(&map) == false)
 		exit_error("Couldn't validate map");
 	if (initialize_window(&map, map.game) == false)
-		free_complete_map(map.contents);
+		free_complete_map(map.data);
 	images = load_images(map.mlx);
 }

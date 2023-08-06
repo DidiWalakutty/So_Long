@@ -21,12 +21,12 @@ void	find_player_position(t_map *map)
 	int	y;
 
 	y = 0;
-	while (map->contents[y])
+	while (map->data[y])
 	{
 		x = 0;
-		while (map->contents[y][x])
+		while (map->data[y][x])
 		{
-			if (map->contents[y][x] == 'P')
+			if (map->data[y][x] == 'P')
 			{
 				map->player_pos_x = x;
 				map->player_pos_y = y;
@@ -48,13 +48,13 @@ char	**duplicate_map(t_map *map)
 	map->map_copy = (char **)ft_calloc((map->height_y + 1), sizeof(char *));
 	if (!map->map_copy)
 		exit_error("Couldn't calloc copy of map");
-	while (map->contents[x])
+	while (map->data[x])
 	{
-		map->map_copy[x] = ft_strdup(map->contents[x]);
+		map->map_copy[x] = ft_strdup(map->data[x]);
 		if (!map->map_copy[x])
 		{
 			free_complete_map(map->map_copy);
-			exit_error("Couldn't copy contents to copy of map");
+			exit_error("Couldn't copy data to copy of map");
 		}
 		x++;
 	}
