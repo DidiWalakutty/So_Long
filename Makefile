@@ -6,7 +6,7 @@
 #    By: diwalaku <diwalaku@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/27 18:11:18 by diwalaku      #+#    #+#                  #
-#    Updated: 2023/08/05 19:22:43 by diwalaku      ########   odam.nl          #
+#    Updated: 2023/08/06 15:58:54 by diwalaku      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRCDIR 	= 	src/
 OBJDIR 	= 	obj/
 
 SRCFILES = main.c map_generator.c map_finder.c map_validator.c \
-			map_checker.c \
+			map_checker.c render.c \
 			window.c load_sprites.c free_and_error.c \
 
 

@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/05 19:15:16 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/06 11:55:20 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/06 16:36:31 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,71 +20,66 @@
 // a pointer to the graphics window.
 t_game	*load_wall_texture(mlx_t *mlx, t_game *img)
 {
-	mlx_texture_t	*wall;
+	mlx_texture_t	*wall_png;
 
-	wall = mlx_load_png("./ path to png");
-	if (!wall)
+	wall_png = mlx_load_png("./ path to png");
+	if (!wall_png)
 		exit_error("Couldn't load wall png");
-	img->wall_t = mlx_texture_to_image(mlx, wall);
-	if (!img->wall_t)
+	img->wall = mlx_texture_to_image(mlx, wall_png);
+	if (!img->wall)
 		exit_error("Couldn't create wall image");
-	mlx_delete_texture(wall);
 	return (img);
 }
 
 t_game	*load_floor_texture(mlx_t *mlx, t_game *img)
 {
-	mlx_texture_t	*floor;
+	mlx_texture_t	*floor_png;
 
-	floor = mlx_load_png("./ path to png");
-	if (!floor)
+	floor_png = mlx_load_png("./ path to png");
+	if (!floor_png)
 		exit_error("Couldn't load floor png");
-	img->floor_t = mlx_texture_to_image(mlx, floor);
-	if (!img->floor_t)
+	img->floor = mlx_texture_to_image(mlx, floor_png);
+	if (!img->floor)
 		exit_error("Couldn't create floor image");
-	mlx_delete_texture(floor);
 	return (img);
 }
 
 // somewhere else if I want close exit?
 t_game	*load_player_texture(mlx_t *mlx, t_game *img)
 {
-	mlx_texture_t	*player;
+	mlx_texture_t	*player_png;
 
-	player = mlx_load_png("./ path to png");
-	if (!player)
+	player_png = mlx_load_png("./ path to png");
+	if (!player_png)
 		exit_error("Couldn't load player png");
-	img->player_t = mlx_texture_to_image(mlx, player);
-	if (img->player_t)
+	img->playr = mlx_texture_to_image(mlx, player_png);
+	if (img->playr)
 		exit_error("Couldn't create player image");
-	mlx_delete_texture(player);
 	return (img);
 }
 
 t_game	*load_collectable_texture(mlx_t *mlx, t_game *img)
 {
-	mlx_texture_t	*collectable;
+	mlx_texture_t	*collectable_png;
 
-	collectable = mlx_load_png("./ path to png");
-	if (!collectable)
+	collectable_png = mlx_load_png("./ path to png");
+	if (!collectable_png)
 		exit_error("Couldn't load collectable png");
-	img->collect_t = mlx_texture_to_image(mlx, collectable);
-	if (!img->collect_t)
+	img->coll = mlx_texture_to_image(mlx, collectable_png);
+	if (!img->coll)
 		exit_error("Couldn't craete collectable image");
-	mlx_delete_texture(collectable);
 	return (img);
 }
 
 t_game	*load_exit_texture(mlx_t *mlx, t_game *img)
 {
-	mlx_texture_t	*exit;
+	mlx_texture_t	*exit_png;
 
-	exit = mlx_load_png("./ path to png");
-	if (!exit)
+	exit_png = mlx_load_png("./ path to png");
+	if (!exit_png)
 		exit_error("Couldn't load exit png");
-	img->exit_t = mlx_texture_to_image(mlx, exit);
-	if (img->exit_t)
+	img->exit = mlx_texture_to_image(mlx, exit_png);
+	if (img->exit)
 		exit_error("Couldn't create exit image");
-	mlx_delete_texture(exit);
 	return (img);
 }
