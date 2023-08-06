@@ -30,3 +30,20 @@ void	free_complete_map(char **map)
 	}
 	free(map);
 }
+
+void	free_game_resources(t_game *game)
+{
+	if (game)
+	{
+		if (game->wall_t)
+			mlx_delete_texture(game->wall_t);
+		if (game->player_t)
+			mlx_delete_texture(game->player_t);
+		if (game->collect_t)
+			mlx_delete_texture(game->collect_t);
+		if (game->floor_t)
+			mlx_delete_texture(game->floor_t);
+		if (game->exit_t)
+			mlx_delete_texture(game->exit_t);
+	}
+}
