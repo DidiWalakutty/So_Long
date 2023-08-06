@@ -29,7 +29,7 @@ bool	check_rectangle(t_map *map)
 	int	len;
 
 	i = 0;
-	len = map->width_x;
+	len = ft_strlen(map->data[0]);
 	while (map->data[i])
 	{
 		if (ft_strlen(map->data[i]) != len)
