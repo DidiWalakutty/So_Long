@@ -51,6 +51,7 @@ char	**duplicate_map(t_map *map)
 	while (map->data[x])
 	{
 		map->map_copy[x] = ft_strdup(map->data[x]);
+		// printf("map_copy is: %s\n", map->map_copy[x]);
 		if (!map->map_copy[x])
 		{
 			free_complete_map(map->map_copy);
@@ -61,8 +62,10 @@ char	**duplicate_map(t_map *map)
 	return (map->map_copy);
 }
 
-static bool	walkable(char **map, int x, int y)
+static bool	walkable(char **map, int y, int x)
 {
+	// printf("position is y[%i] x[%i], map: %c\n", y, x, map[y][x]);
+	// printf("\n");
 	if (map[y][x] == 'P' || map[y][x] == 'C' || \
 	map[y][x] == 'E' || map[y][x] == '0')
 		return (true);
@@ -76,18 +79,19 @@ static bool	walkable(char **map, int x, int y)
 // 4 directionally. When it's done, all cells that aren't
 // '1' will be marked with 'T' (for true).
 // All non-walkable/'1' cells are left untouched.
-char	**floodfill(char **copy_map, int x_pos, int y_pos)
+char	**floodfill(char **copy_map, int y_pos, int x_pos)
 {
+	// printf("in loop: char is %c\n", copy_map[y_pos][x_pos]);
 	if (copy_map[y_pos][x_pos] != '1')
 	{
-		if (walkable(copy_map, x_pos, y_pos) == true)
+		if (walkable(copy_map, y_pos, x_pos) == true)
 			copy_map[y_pos][x_pos] = 'T';
 		else
 			return (copy_map);
-		floodfill(copy_map, x_pos + 1, y_pos);
-		floodfill(copy_map, x_pos - 1, y_pos);
-		floodfill(copy_map, x_pos, y_pos + 1);
-		floodfill(copy_map, x_pos, y_pos - 1);
+		floodfill(copy_map, y_pos, x_pos + 1);
+		floodfill(copy_map, y_pos, x_pos - 1);
+		floodfill(copy_map, y_pos + 1, x_pos);
+		floodfill(copy_map, y_pos - 1, x_pos);
 	}
 	return (copy_map);
 }
@@ -105,7 +109,7 @@ bool	valid_path(char **checked)
 		x = 0;
 		while (checked[y][x])
 		{
-			if (checked[y][x] != 'T' || checked[y][x] != '1')
+			if (checked[y][x] != 'T' && checked[y][x] != '1')
 				return (false);
 			x++;
 		}

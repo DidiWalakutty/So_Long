@@ -39,9 +39,10 @@ int	main(int argc, char **argv)
 		return (0);
 	if (validate_map(&map) == false)
 		exit_error("Couldn't validate map");
-	// if (initialize_window(&map, map.game) == false)
-	// 	free_complete_map(map.data);
-	// images = load_images(map.mlx);
+	printf("done up to validate map\n");
+	if (initialize_window(&map, map.game) == false)
+		free_complete_map(map.data);
+	images = load_images(map.mlx, &map, map.game);
 	// fill_map(&map, map.game);
 	return (1);
 }

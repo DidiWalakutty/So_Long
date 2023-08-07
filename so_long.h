@@ -28,15 +28,15 @@
 typedef struct s_game
 {
 	mlx_image_t		*wall;
-	// mlx_texture_t	*wall_t;
+	mlx_texture_t	*wall_t;
 	mlx_image_t		*playr;
-	// mlx_texture_t	*player_t;
-	mlx_image_t		*coll;
-	// mlx_texture_t	*collect_t;
+	mlx_texture_t	*player_t;
+	mlx_image_t		*collc;
+	mlx_texture_t	*collc_t;
 	mlx_image_t		*exit;
-	// mlx_texture_t	*exit_t;
+	mlx_texture_t	*exit_t;
 	mlx_image_t		*floor;
-	// mlx_texture_t	*floor_t;
+	mlx_texture_t	*floor_t;
 	int				steps;
 	int				player_x;
 	int				player_y;
@@ -75,13 +75,13 @@ bool	check_vertical_walls(t_map *map);
 void	check_chars(t_map *map);
 void	find_player_position(t_map *map);
 char	**duplicate_map(t_map *map);
-char	**floodfill(char **copy_map, int x_pos, int y_pos);
+char	**floodfill(char **copy_map, int y_pos, int x_pos);
 bool	valid_path(char **checked);
 
 // Create Window
 bool	initialize_window(t_map *map, t_game *game);	
-t_game	*load_images(mlx_t *mlx);
-void	fill_map(t_map *map, t_game *game);
+t_game	*load_images(mlx_t *mlx, t_map *map, t_game *game);
+// void	fill_map(t_map *map, t_game *game);
 
 // Image Functions
 t_game	*load_wall_texture(mlx_t *mlx, t_game *img);
