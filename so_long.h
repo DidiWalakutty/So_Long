@@ -22,8 +22,7 @@
 # include <memory.h>
 # include <time.h>
 
-# define PIXELS 64
-# define SPRITE 32
+# define PIXELS 32
 
 typedef struct s_game
 {
@@ -80,8 +79,8 @@ bool	valid_path(char **checked);
 
 // Create Window
 bool	initialize_window(t_map *map, t_game *game);	
-t_game	*load_images(mlx_t *mlx, t_map *map, t_game *game);
-// void	fill_map(t_map *map, t_game *game);
+t_game	*load_images(mlx_t *mlx, t_map *map);
+void	fill_map(t_map *map, t_game *game);
 
 // Image Functions
 t_game	*load_wall_texture(mlx_t *mlx, t_game *img);

@@ -39,8 +39,8 @@ void	free_image_resources(mlx_t *mlx, t_game *game)
 			mlx_delete_image(mlx, game->wall);
 		if (game->playr)
 			mlx_delete_image(mlx, game->playr);
-		if (game->coll)
-			mlx_delete_image(mlx, game->coll);
+		if (game->collc)
+			mlx_delete_image(mlx, game->collc);
 		if (game->floor)
 			mlx_delete_image(mlx, game->floor);
 		if (game->exit)

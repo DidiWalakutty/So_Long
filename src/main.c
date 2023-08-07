@@ -42,6 +42,8 @@ int	main(int argc, char **argv)
 	printf("done up to validate map\n");
 	if (initialize_window(&map, map.game) == false)
 		free_complete_map(map.data);
-	images = load_images(map.mlx, &map, map.game);
+	images = load_images(map.mlx, &map);
+	// loop and hook's aren't done yet, current mlx_loop is just for checking
+	mlx_loop(map.mlx);
 	return (1);
 }
