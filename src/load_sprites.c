@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/05 19:15:16 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/07 16:09:45 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/07 16:49:37 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ t_game	*load_floor_texture(mlx_t *mlx, t_game *img)
 t_game	*load_player_texture(mlx_t *mlx, t_game *img)
 {
 	img->player_t = mlx_load_png("./ path to png");
-	if (!img->player_t )
+	if (!img->player_t)
 		exit_error("Couldn't load player png");
-	img->playr = mlx_texture_to_image(mlx, img->player_t );
+	img->playr = mlx_texture_to_image(mlx, img->player_t);
 	if (img->playr)
 		exit_error("Couldn't create player image");
 	return (img);

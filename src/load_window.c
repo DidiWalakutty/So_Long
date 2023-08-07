@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/05 15:18:54 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/07 16:02:09 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/07 16:44:32 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_game	*load_images(mlx_t *mlx, t_map *map, t_game *game)
 		!load_exit_texture(mlx, bag))
 	{
 		free_image_resources(mlx, bag);
-		exit_error("Couldn't load all textures");
+		exit_error("Couldn't load all images");
 	}
 	fill_map(map, game);
 	return (bag);
@@ -52,5 +52,5 @@ void	fill_map(t_map *map, t_game *game)
 	!place_collectables(map, game) || \
 	!place_exit(map, game) || \
 	!place_floor(map, game))
-		exit_error("Couldn't place images in window");
+		exit_error("Couldn't load images to window");
 }
