@@ -52,6 +52,8 @@ void	initialize_map(t_map *map)
 // and has the right chars.
 // It initializes the map first, so it knows
 // the height and width of the map
+//
+//	check_floodcheck(flood_check);
 bool	validate_map(t_map *map)
 {
 	char	**flood_map;
@@ -68,7 +70,6 @@ bool	validate_map(t_map *map)
 	find_player_position(map);
 	flood_map = duplicate_map(map);
 	flood_check = floodfill(flood_map, map->player_pos_y, map->player_pos_x);
-	// check_floodcheck(flood_check);
 	if (valid_path(flood_check) == false)
 	{
 		free_complete_map(flood_check);

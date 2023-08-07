@@ -43,6 +43,5 @@ int	main(int argc, char **argv)
 	if (initialize_window(&map, map.game) == false)
 		free_complete_map(map.data);
 	images = load_images(map.mlx, &map, map.game);
-	// fill_map(&map, map.game);
 	return (1);
 }

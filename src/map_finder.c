@@ -40,6 +40,8 @@ void	find_player_position(t_map *map)
 
 // Copy the map to check for floodfill.
 // Create a 2D array, so **.
+//
+// printf("map_copy is: %s\n", map->map_copy[x]);
 char	**duplicate_map(t_map *map)
 {
 	int		x;
@@ -51,7 +53,6 @@ char	**duplicate_map(t_map *map)
 	while (map->data[x])
 	{
 		map->map_copy[x] = ft_strdup(map->data[x]);
-		// printf("map_copy is: %s\n", map->map_copy[x]);
 		if (!map->map_copy[x])
 		{
 			free_complete_map(map->map_copy);
@@ -64,8 +65,6 @@ char	**duplicate_map(t_map *map)
 
 static bool	walkable(char **map, int y, int x)
 {
-	// printf("position is y[%i] x[%i], map: %c\n", y, x, map[y][x]);
-	// printf("\n");
 	if (map[y][x] == 'P' || map[y][x] == 'C' || \
 	map[y][x] == 'E' || map[y][x] == '0')
 		return (true);
@@ -79,9 +78,10 @@ static bool	walkable(char **map, int y, int x)
 // 4 directionally. When it's done, all cells that aren't
 // '1' will be marked with 'T' (for true).
 // All non-walkable/'1' cells are left untouched.
+//
+// printf("in loop: char is %c\n", copy_map[y_pos][x_pos]);
 char	**floodfill(char **copy_map, int y_pos, int x_pos)
 {
-	// printf("in loop: char is %c\n", copy_map[y_pos][x_pos]);
 	if (copy_map[y_pos][x_pos] != '1')
 	{
 		if (walkable(copy_map, y_pos, x_pos) == true)
