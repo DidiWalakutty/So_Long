@@ -14,7 +14,9 @@
 
 static void	check_invalids(char c)
 {
-	if (c != '0' || c != '1')
+	if (c == '0' || c == '1')
+		return ;
+	else
 		exit_error("This is not a valid character");
 }
 
@@ -30,6 +32,8 @@ bool	check_rectangle(t_map *map)
 
 	i = 0;
 	len = ft_strlen(map->data[0]);
+	if (len < 2)
+		return (false);
 	while (map->data[i])
 	{
 		if (ft_strlen(map->data[i]) != len)
@@ -70,7 +74,7 @@ bool	check_vertical_walls(t_map *map)
 	size_t	i;
 
 	i = 0;
-	while (map->data[i][0])
+	while (map->data[i])
 	{
 		if (map->data[i][0] != '1')
 			return (false);
@@ -88,26 +92,26 @@ bool	check_vertical_walls(t_map *map)
 // allowed chars. Set i to 1, because 0 is 1's only
 void	check_chars(t_map *map)
 {
-	int	i;
+	int	y;
 	int	x;
 
-	i = 1;
-	while (map->data[i])
+	y = 1;
+	while (map->data[y])
 	{
 		x = 0;
-		while (map->data[i][x])
+		while (map->data[y][x])
 		{
-			if (map->data[i][x] == 'C')
+			if (map->data[y][x] == 'C')
 				map->count_c += 1;
-			else if (map->data[i][x] == 'E')
+			else if (map->data[y][x] == 'E')
 				map->count_e += 1;
-			else if (map->data[i][x] == 'P')
+			else if (map->data[y][x] == 'P')
 				map->count_p += 1;
 			else
-				check_invalids(map->data[i][x]);
+				check_invalids(map->data[y][x]);
 			x++;
 		}
-		i++;
+		y++;
 	}
 	if (map->count_c < 1 || map->count_e != 1 || map->count_p != 1)
 		exit_error("Wrong amount of collectibles, exits or start positions");

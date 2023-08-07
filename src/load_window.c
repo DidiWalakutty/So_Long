@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   window.c                                           :+:    :+:            */
+/*   load_window.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/05 15:18:54 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/06 16:43:31 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/07 16:02:09 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ bool	initialize_window(t_map *map, t_game *game)
 	return (true);
 }
 
-t_game	*load_images(mlx_t *mlx)
+t_game	*load_images(mlx_t *mlx, t_map *map, t_game *game)
 {
 	t_game	*bag;
 
@@ -41,6 +41,7 @@ t_game	*load_images(mlx_t *mlx)
 		free_image_resources(mlx, bag);
 		exit_error("Couldn't load all textures");
 	}
+	fill_map(map, game);
 	return (bag);
 }
 

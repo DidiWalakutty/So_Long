@@ -33,6 +33,20 @@ void	initialize_map(t_map *map)
 	map->player_pos_y = 0;
 }
 
+// static void	check_floodcheck(char **floodcheck)
+// {
+// 	int	y;
+// 	int	x;
+
+// 	y = 0;
+// 	while (floodcheck[y])
+// 	{
+// 		printf("floodcheck is: y: %s\n", floodcheck[y]);
+// 		y++;
+// 	}
+// 		printf("done\n");
+// }
+
 // This functions checks if the map
 // is rectangular, is surrounded with walls,
 // and has the right chars.
@@ -46,18 +60,19 @@ bool	validate_map(t_map *map)
 	initialize_map(map);
 	if (check_rectangle(map) == false)
 		exit_error("This map is not rectangular!");
-	// if (check_horizontal_walls(map) == false)
-	// 	exit_error("The map isn't surrounded with walls.");
-	// if (check_vertical_walls(map) == false)
-	// 	exit_error("The map isn't surrounded with walls.");
-	// check_chars(map);
-	// find_player_position(map);
-	// flood_map = duplicate_map(map);
-	// flood_check = floodfill(flood_map, map->player_pos_x, map->player_pos_y);
-	// if (valid_path(flood_check) == false)
-	// {
-	// 	free_complete_map(flood_check);
-	// 	exit_error("Couldn't find a valid path.");
-	// }
+	if (check_horizontal_walls(map) == false)
+		exit_error("The map isn't surrounded with walls.");
+	if (check_vertical_walls(map) == false)
+		exit_error("The map isn't surrounded with walls.");
+	check_chars(map);
+	find_player_position(map);
+	flood_map = duplicate_map(map);
+	flood_check = floodfill(flood_map, map->player_pos_y, map->player_pos_x);
+	// check_floodcheck(flood_check);
+	if (valid_path(flood_check) == false)
+	{
+		free_complete_map(flood_check);
+		exit_error("Couldn't find a valid path.");
+	}
 	return (true);
 }
