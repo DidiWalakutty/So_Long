@@ -15,7 +15,7 @@
 // This functions searches for the position of
 // the start position of the player "P".
 // Y is length, x is width.
-void	find_player_position(t_map *map)
+void	find_player_position(t_game *map)
 {
 	int	x;
 	int	y;
@@ -28,8 +28,8 @@ void	find_player_position(t_map *map)
 		{
 			if (map->data[y][x] == 'P')
 			{
-				map->player_pos_x = x;
-				map->player_pos_y = y;
+				map->player_x = x;
+				map->player_y = y;
 				return ;
 			}
 			x++;
@@ -42,7 +42,7 @@ void	find_player_position(t_map *map)
 // Create a 2D array, so **.
 //
 // printf("map_copy is: %s\n", map->map_copy[x]);
-char	**duplicate_map(t_map *map)
+char	**duplicate_map(t_game *map)
 {
 	int		x;
 

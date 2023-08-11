@@ -6,7 +6,7 @@
 #    By: diwalaku <diwalaku@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/27 18:11:18 by diwalaku      #+#    #+#                  #
-#    Updated: 2023/08/07 19:40:25 by diwalaku      ########   odam.nl          #
+#    Updated: 2023/08/11 22:18:17 by diwalaku      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@ SRCDIR 	= 	src/
 OBJDIR 	= 	obj/
 
 SRCFILES = main.c map_generator.c map_finder.c map_validator.c \
-			map_checker.c render.c \
-			load_window.c load_sprites.c free_and_error.c \
-
+			map_checker.c render.c keyboard.c moves.c \
+			load_window.c load_sprites.c load_player_sprites.c \
+			free_and_error.c \
 
 SRCOBJ = $(SRCFILES:%.c=$(OBJDIR)%.o)
 

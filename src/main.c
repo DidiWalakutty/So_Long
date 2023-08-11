@@ -25,7 +25,7 @@
 // the value of a variable and pass it by reference.
 int	main(int argc, char **argv)
 {
-	t_map	map;
+	t_game	map;
 	t_game	*images;
 	int		fd;
 	int		i;
@@ -39,10 +39,11 @@ int	main(int argc, char **argv)
 		return (0);
 	if (validate_map(&map) == false)
 		exit_error("Couldn't validate map");
-	printf("done up to validate map\n");
-	if (initialize_window(&map, map.game) == false)
+	if (initialize_window(&map) == false)
 		free_complete_map(map.data);
+	// can't fill map with images after putting it all in one struct.
 	images = load_images(map.mlx, &map);
+	// mlx_key_hook(map.mlx, keydata, &map);
 	// loop and hook's aren't done yet, current mlx_loop is just for checking
 	mlx_loop(map.mlx);
 	return (1);

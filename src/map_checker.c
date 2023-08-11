@@ -25,7 +25,7 @@ static void	check_invalids(char c)
 // compare it with len.
 // If it's not the same, it's not rectangular.
 // As long as it has four right angles, we're good.
-bool	check_rectangle(t_map *map)
+bool	check_rectangle(t_game *map)
 {
 	int	i;
 	int	len;
@@ -48,7 +48,7 @@ bool	check_rectangle(t_map *map)
 // height_y - 1, because of array index 0.
 // Checks the positions in different rows
 // simultaneously per iterations.
-bool	check_horizontal_walls(t_map *map)
+bool	check_horizontal_walls(t_game *map)
 {
 	size_t	i;
 
@@ -69,7 +69,7 @@ bool	check_horizontal_walls(t_map *map)
 // width_x - 1, because of array index 0.
 // Checks the positions in different rows
 // simultaneously per iterations
-bool	check_vertical_walls(t_map *map)
+bool	check_vertical_walls(t_game *map)
 {
 	size_t	i;
 
@@ -90,7 +90,7 @@ bool	check_vertical_walls(t_map *map)
 // of player-pos, exit and collectibles.
 // Also checks if the other chars are only
 // allowed chars. Set i to 1, because 0 is 1's only
-void	check_chars(t_map *map)
+void	check_chars(t_game *map)
 {
 	int	y;
 	int	x;
