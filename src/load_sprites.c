@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/05 19:15:16 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/07 20:46:15 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/11 21:58:21 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,18 @@ t_game	*load_wall_texture(mlx_t *mlx, t_game *img)
 	return (img);
 }
 
+// place player_texture back to player_sprites.c
+t_game	*load_player_texture(mlx_t *mlx, t_game *img)
+{
+	img->player_t = mlx_load_png("sprites/player.png");
+	if (!img->player_t)
+		exit_error("Couldn't load player png");
+	img->player = mlx_texture_to_image(mlx, img->player_t);
+	if (!img->player)
+		exit_error("Couldn't create player image");
+	return (img);
+}
+
 t_game	*load_floor_texture(mlx_t *mlx, t_game *img)
 {
 	img->floor_t = mlx_load_png("sprites/floor.png");
@@ -40,25 +52,13 @@ t_game	*load_floor_texture(mlx_t *mlx, t_game *img)
 	return (img);
 }
 
-// somewhere else if I want close exit?
-t_game	*load_player_texture(mlx_t *mlx, t_game *img)
-{
-	img->player_t = mlx_load_png("sprites/player.png");
-	if (!img->player_t)
-		exit_error("Couldn't load player png");
-	img->playr = mlx_texture_to_image(mlx, img->player_t);
-	if (!img->playr)
-		exit_error("Couldn't create player image");
-	return (img);
-}
-
 t_game	*load_collectable_texture(mlx_t *mlx, t_game *img)
 {
-	img->collc_t = mlx_load_png("sprites/collectable.png");
-	if (!img->collc_t)
+	img->collectable_t = mlx_load_png("sprites/collectable.png");
+	if (!img->collectable_t)
 		exit_error("Couldn't load collectable png");
-	img->collc = mlx_texture_to_image(mlx, img->collc_t);
-	if (!img->collc)
+	img->collectable = mlx_texture_to_image(mlx, img->collectable_t);
+	if (!img->collectable)
 		exit_error("Couldn't craete collectable image");
 	return (img);
 }

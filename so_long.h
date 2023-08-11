@@ -26,12 +26,28 @@
 
 typedef struct s_game
 {
+	char			**data;
+	char			**map_copy;
+	int				width_x;
+	int				height_y;
+	int				count_p;
+	int				count_c;
+	int				count_e;
+	mlx_t			*mlx;
 	mlx_image_t		*wall;
 	mlx_texture_t	*wall_t;
-	mlx_image_t		*playr;
+	mlx_image_t		*player;
 	mlx_texture_t	*player_t;
-	mlx_image_t		*collc;
-	mlx_texture_t	*collc_t;
+	mlx_image_t		*player_up;
+	mlx_texture_t	*player_up_t;
+	mlx_image_t		*player_down;
+	mlx_texture_t	*player_down_t;
+	mlx_image_t		*player_left;
+	mlx_texture_t	*player_left_t;
+	mlx_image_t		*player_right;
+	mlx_texture_t	*player_right_t;
+	mlx_image_t		*collectable;
+	mlx_texture_t	*collectable_t;
 	mlx_image_t		*exit;
 	mlx_texture_t	*exit_t;
 	mlx_image_t		*floor;
@@ -39,24 +55,9 @@ typedef struct s_game
 	int				steps;
 	int				player_x;
 	int				player_y;
-	int				dead;	
+	int				death;	
 	int				total_collect;
 }	t_game;
-
-typedef struct s_map
-{
-	char	**data;
-	char	**map_copy;
-	int		width_x;
-	int		height_y;
-	int		count_p;
-	int		count_c;
-	int		count_e;
-	int		player_pos_x;
-	int		player_pos_y;
-	mlx_t	*mlx;
-	t_game	*game;
-}	t_map;
 
 // Base
 int		main(int argc, char **argv); 
@@ -64,23 +65,23 @@ int		main(int argc, char **argv);
 // Map Functions
 int		receive_map(int argc, char **argv);
 char	**process_map(int fd);
-void	initialize_map(t_map *map);
+void	initialize_map(t_game *map);
 
 // Map Validation
-bool	validate_map(t_map *map);
-bool	check_rectangle(t_map *map);
-bool	check_horizontal_walls(t_map *map);
-bool	check_vertical_walls(t_map *map);
-void	check_chars(t_map *map);
-void	find_player_position(t_map *map);
-char	**duplicate_map(t_map *map);
+bool	validate_map(t_game *map);
+bool	check_rectangle(t_game *map);
+bool	check_horizontal_walls(t_game *map);
+bool	check_vertical_walls(t_game *map);
+void	check_chars(t_game *map);
+void	find_player_position(t_game *map);
+char	**duplicate_map(t_game *map);
 char	**floodfill(char **copy_map, int y_pos, int x_pos);
 bool	valid_path(char **checked);
 
 // Create Window
-bool	initialize_window(t_map *map, t_game *game);	
-t_game	*load_images(mlx_t *mlx, t_map *map);
-void	fill_map(t_map *map, t_game *game);
+bool	initialize_window(t_game *map);	
+t_game	*load_images(mlx_t *mlx, t_game *map);
+void	fill_map(t_game *map, t_game *bag);
 
 // Image Functions
 t_game	*load_wall_texture(mlx_t *mlx, t_game *img);
@@ -88,13 +89,18 @@ t_game	*load_floor_texture(mlx_t *mlx, t_game *img);
 t_game	*load_player_texture(mlx_t *mlx, t_game *img);
 t_game	*load_collectable_texture(mlx_t *mlx, t_game *img);
 t_game	*load_exit_texture(mlx_t *mlx, t_game *img);
-bool	place_walls(t_map *map, t_game *game);
-bool	place_player(t_map *map, t_game *game);
-bool	place_collectables(t_map *map, t_game *game);
-bool	place_exit(t_map *map, t_game *game);
-bool	place_floor(t_map *map, t_game *game);
+t_game	*load_player_up(mlx_t *mlx, t_game *img);
+t_game	*load_player_down(mlx_t *mlx, t_game *img);
+t_game	*load_player_left(mlx_t *mlx, t_game *img);
+t_game	*load_player_right(mlx_t *mlx, t_game *img);
+bool	place_walls(t_game *map, t_game *bag);
+bool	place_player(t_game *map, t_game *bag);
+bool	place_collectables(t_game *map, t_game *bag);
+bool	place_exit(t_game *map, t_game *bag);
+bool	place_floor(t_game *map, t_game *bag);
 
 // Move Functions
+void	keydata(mlx_key_data_t keys, void *data);
 
 // Free and Errors
 void	exit_error(char *str);

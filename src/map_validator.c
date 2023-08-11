@@ -22,15 +22,15 @@ static size_t	row_count(char **grid)
 	return (y);
 }
 
-void	initialize_map(t_map *map)
+void	initialize_map(t_game *map)
 {
 	map->width_x = ft_strlen(map->data[0]);
 	map->height_y = row_count(map->data);
 	map->count_p = 0;
 	map->count_c = 0;
 	map->count_e = 0;
-	map->player_pos_x = 0;
-	map->player_pos_y = 0;
+	map->player_x = 0;
+	map->player_y = 0;
 }
 
 // static void	check_floodcheck(char **floodcheck)
@@ -54,7 +54,8 @@ void	initialize_map(t_map *map)
 // the height and width of the map
 //
 //	check_floodcheck(flood_check);
-bool	validate_map(t_map *map)
+
+bool	validate_map(t_game *map)
 {
 	char	**flood_map;
 	char	**flood_check;
@@ -69,7 +70,7 @@ bool	validate_map(t_map *map)
 	check_chars(map);
 	find_player_position(map);
 	flood_map = duplicate_map(map);
-	flood_check = floodfill(flood_map, map->player_pos_y, map->player_pos_x);
+	flood_check = floodfill(flood_map, map->player_y, map->player_x);
 	if (valid_path(flood_check) == false)
 	{
 		free_complete_map(flood_check);
