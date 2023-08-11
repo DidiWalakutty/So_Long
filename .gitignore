@@ -2,5 +2,4 @@
 .cache/
 .DS_Store
 *.dSYM
-/MLX42
 /libft
