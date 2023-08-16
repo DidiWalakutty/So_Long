@@ -31,6 +31,7 @@ void	initialize_map(t_game *map)
 	map->count_e = 0;
 	map->player_x = 0;
 	map->player_y = 0;
+	map->exit_open = 0;
 }
 
 // static void	check_floodcheck(char **floodcheck)

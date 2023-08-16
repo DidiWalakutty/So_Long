@@ -41,10 +41,12 @@ int	main(int argc, char **argv)
 		exit_error("Couldn't validate map");
 	if (initialize_window(&map) == false)
 		free_complete_map(map.data);
-	// can't fill map with images after putting it all in one struct.
+	// works up to loading images
+	// can't move player, address sanitizer
 	images = load_images(map.mlx, &map);
-	// mlx_key_hook(map.mlx, keydata, &map);
-	// loop and hook's aren't done yet, current mlx_loop is just for checking
+	mlx_key_hook(map.mlx, keydata, &map);
 	mlx_loop(map.mlx);
+	// mlx_terminate(map.mlx);
+	// free_complete_map(&map);
 	return (1);
 }
