@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/06 15:58:56 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/11 22:08:12 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/16 15:59:31 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ bool	place_collectables(t_game *map, t_game *bag)
 			if (map->data[y][x] == 'C')
 			{
 				if ((mlx_image_to_window(map->mlx, bag->collectable, \
-				x * PIXELS, y * PIXELS)) < 0)
+				x * PIXELS + 8, y * PIXELS)) < 0)
 					return (false);
 			}
 			x++;

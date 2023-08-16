@@ -48,10 +48,13 @@ typedef struct s_game
 	mlx_texture_t	*player_right_t;
 	mlx_image_t		*collectable;
 	mlx_texture_t	*collectable_t;
+	mlx_image_t		*gameover;
+	mlx_texture_t	*gameover_t;
 	mlx_image_t		*exit;
 	mlx_texture_t	*exit_t;
 	mlx_image_t		*floor;
 	mlx_texture_t	*floor_t;
+	int				exit_open;
 	int				steps;
 	int				player_x;
 	int				player_y;
@@ -93,6 +96,7 @@ t_game	*load_player_up(mlx_t *mlx, t_game *img);
 t_game	*load_player_down(mlx_t *mlx, t_game *img);
 t_game	*load_player_left(mlx_t *mlx, t_game *img);
 t_game	*load_player_right(mlx_t *mlx, t_game *img);
+t_game	*load_gameover(mlx_t *mlx, t_game *img);
 bool	place_walls(t_game *map, t_game *bag);
 bool	place_player(t_game *map, t_game *bag);
 bool	place_collectables(t_game *map, t_game *bag);
@@ -101,6 +105,13 @@ bool	place_floor(t_game *map, t_game *bag);
 
 // Move Functions
 void	keydata(mlx_key_data_t keys, void *data);
+t_game	*move_up(t_game *game);
+t_game	*move_down(t_game *game);
+t_game	*move_left(t_game *game);
+t_game	*move_right(t_game *game);
+void	remove_collectable(t_game *game, int x, int y);
+void	update_game(t_game *game);
+void	end_game(t_game *game);
 
 // Free and Errors
 void	exit_error(char *str);
