@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/05 19:15:16 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/11 21:58:21 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/17 17:33:25 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,12 @@ t_game	*load_wall_texture(mlx_t *mlx, t_game *img)
 	img->wall = mlx_texture_to_image(mlx, img->wall_t);
 	if (!img->wall)
 		exit_error("Couldn't create wall image");
+	mlx_delete_texture(img->wall_t);
 	return (img);
 }
 
+// need to delete textures if we already free_image_resources in load_images?
+//
 // place player_texture back to player_sprites.c
 t_game	*load_player_texture(mlx_t *mlx, t_game *img)
 {
@@ -38,6 +41,7 @@ t_game	*load_player_texture(mlx_t *mlx, t_game *img)
 	img->player = mlx_texture_to_image(mlx, img->player_t);
 	if (!img->player)
 		exit_error("Couldn't create player image");
+	mlx_delete_texture(img->player_t);
 	return (img);
 }
 
@@ -49,6 +53,7 @@ t_game	*load_floor_texture(mlx_t *mlx, t_game *img)
 	img->floor = mlx_texture_to_image(mlx, img->floor_t);
 	if (!img->floor)
 		exit_error("Couldn't create floor image");
+	mlx_delete_texture(img->floor_t);
 	return (img);
 }
 
@@ -60,6 +65,7 @@ t_game	*load_collectable_texture(mlx_t *mlx, t_game *img)
 	img->collectable = mlx_texture_to_image(mlx, img->collectable_t);
 	if (!img->collectable)
 		exit_error("Couldn't craete collectable image");
+	mlx_delete_texture(img->collectable_t);
 	return (img);
 }
 
@@ -71,5 +77,6 @@ t_game	*load_exit_texture(mlx_t *mlx, t_game *img)
 	img->exit = mlx_texture_to_image(mlx, img->exit_t);
 	if (!img->exit)
 		exit_error("Couldn't create exit image");
+	mlx_delete_texture(img->exit_t);
 	return (img);
 }

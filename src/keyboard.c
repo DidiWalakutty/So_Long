@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/11 17:17:40 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/16 18:28:10 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/17 17:33:00 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,37 +43,31 @@ static void	select_move(t_game *game, char line, char dir)
 	}
 }
 
-static void	move(mlx_t *mlx, t_game *game, char line, char dir)
+static void	move(t_game *game, char line, char dir)
 {
 	// printf("line: %c, dir: %c\n", line, dir);
 	select_move(game, line, dir);
-	// choose_player_direction(mlx, game, dir);
+	// choose_player_direction(game->mlx, game, dir);
 }
 
 void	keydata(mlx_key_data_t keys, void *data)
 {
-	t_game	*grid;
+	t_game	*game;
 
-	grid = (t_game *) data;
-	if (keys.action == MLX_PRESS && grid->death != 1)
-	{
-		if (mlx_is_key_down(grid->mlx, MLX_KEY_ESCAPE))
-		{
-			// if (keys.key == MLX_KEY_ESCAPE)
-			mlx_close_window(grid->mlx);
-		}
-		else if (keys.key == MLX_KEY_W && keys.action == MLX_PRESS)
-			move(grid->mlx, grid, 'y', 'u');
-		else if (keys.key == MLX_KEY_S && keys.action == MLX_PRESS)
-			move(grid->mlx, grid, 'y', 'd');
-		else if (keys.key == MLX_KEY_A && keys.action == MLX_PRESS)
-			move(grid->mlx, grid, 'x', 'l');
-		else if (keys.key == MLX_KEY_D && keys.action == MLX_PRESS)
-			move(grid->mlx, grid, 'x', 'r');
-	}
+	game = (t_game *) data;
+	if (keys.key == MLX_KEY_ESCAPE && keys.action == MLX_PRESS)
+		mlx_close_window(game->mlx);
+	if (keys.key == MLX_KEY_W && keys.action == MLX_PRESS)
+		move(game, 'y', 'u');
+	if (keys.key == MLX_KEY_S && keys.action == MLX_PRESS)
+		move(game, 'y', 'd');
+	if (keys.key == MLX_KEY_A && keys.action == MLX_PRESS)
+		move(game, 'x', 'l');
+	if (keys.key == MLX_KEY_D && keys.action == MLX_PRESS)
+		move(game, 'x', 'r');
 }
 
-void	remove_collectable(t_game *game, int x, int y)
+void	remove_collectable(t_game *game, int y, int x)
 {
 	int	coll;
 

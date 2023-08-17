@@ -48,5 +48,6 @@ int	main(int argc, char **argv)
 	mlx_loop(map.mlx);
 	// mlx_terminate(map.mlx);
 	// free_complete_map(&map);
+	
 	return (1);
 }
