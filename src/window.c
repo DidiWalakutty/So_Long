@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/16 11:09:08 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/16 17:21:24 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/17 16:29:12 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@ void	end_game(t_game *game)
 	ending->enabled = false;
 	game->death = 1;
 	mlx_image_to_window(game->mlx, game->gameover, (game->width_x / 2) * PIXELS, (game->height_y / 2) * PIXELS);
-	ft_printf("Game Over, congratulations!\n");
+	ft_printf("Game Over!\n");
 }
 
 void	update_game(t_game *game)
 {
-	ft_printf("%i moves\n", game->steps);
+	if (game->steps >= 1)
+		ft_printf("%i moves\n", game->steps);
 	if (game->player_x == 'C' && game->player_y == 'C')
 		{
 			remove_collectable(game, game->player_x, game->player_y);

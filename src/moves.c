@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/11 21:33:30 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/16 17:28:02 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/17 17:05:17 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ t_game	*move_up(t_game *game)
 		game->steps += 1;
 		game->player->instances[0].y -= 1 * PIXELS;
 	}
-	else
-		game->steps += 1;
 	update_game(game);
 	return (game);
 }
@@ -41,8 +39,6 @@ t_game	*move_down(t_game *game)
 		game->steps += 1;
 		game->player->instances[0].y += 1 * PIXELS;
 	}
-	else
-		game->steps += 1;
 	update_game(game);
 	return (game);
 }
@@ -56,8 +52,6 @@ t_game	*move_left(t_game *game)
 		game->steps += 1;
 		game->player->instances[0].x -= 1 * PIXELS;
 	}
-	else
-		game->steps += 1;
 	update_game(game);
 	return (game);
 }
@@ -71,8 +65,6 @@ t_game	*move_right(t_game *game)
 		game->steps += 1;
 		game->player->instances[0].x += 1 * PIXELS;
 	}
-	else
-		game->steps += 1;
 	update_game(game);
 	return (game);
 }
