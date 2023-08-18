@@ -24,6 +24,20 @@
 
 # define PIXELS 32
 
+typedef struct s_images
+{
+	mlx_image_t		*wall;
+	mlx_image_t		*player;
+	mlx_image_t		*player_up;
+	mlx_image_t		*player_down;
+	mlx_image_t		*player_left;
+	mlx_image_t		*player_right;
+	mlx_image_t		*collectable;
+	mlx_image_t		*gameover;
+	mlx_image_t		*exit;
+	mlx_image_t		*floor;
+} t_images;
+
 typedef struct s_game
 {
 	char			**data;
@@ -33,33 +47,13 @@ typedef struct s_game
 	int				count_p;
 	int				count_c;
 	int				count_e;
-	mlx_t			*mlx;
-	mlx_image_t		*wall;
-	mlx_texture_t	*wall_t;
-	mlx_image_t		*player;
-	mlx_texture_t	*player_t;
-	mlx_image_t		*player_up;
-	mlx_texture_t	*player_up_t;
-	mlx_image_t		*player_down;
-	mlx_texture_t	*player_down_t;
-	mlx_image_t		*player_left;
-	mlx_texture_t	*player_left_t;
-	mlx_image_t		*player_right;
-	mlx_texture_t	*player_right_t;
-	mlx_image_t		*collectable;
-	mlx_texture_t	*collectable_t;
-	mlx_image_t		*gameover;
-	mlx_texture_t	*gameover_t;
-	mlx_image_t		*exit;
-	mlx_texture_t	*exit_t;
-	mlx_image_t		*floor;
-	mlx_texture_t	*floor_t;
-	int				exit_open;
-	int				steps;
 	int				player_x;
 	int				player_y;
-	int				death;	
+	int				steps;
 	int				total_collect;
+	int				death;	
+	mlx_t			*mlx;
+	t_images		images;
 }	t_game;
 
 // Base
@@ -74,7 +68,7 @@ void	initialize_map(t_game *map);
 bool	validate_map(t_game *map);
 bool	check_rectangle(t_game *map);
 bool	check_horizontal_walls(t_game *map);
-bool	check_vertical_walls(t_game *map);
+// bool	check_vertical_walls(t_game *map);
 void	check_chars(t_game *map);
 void	find_player_position(t_game *map);
 char	**duplicate_map(t_game *map);
