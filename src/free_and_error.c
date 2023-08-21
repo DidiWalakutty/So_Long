@@ -31,19 +31,19 @@ void	free_complete_map(char **map)
 	free(map);
 }
 
-void	free_image_resources(mlx_t *mlx, t_game *game)
+void	free_image_resources(mlx_t *mlx, t_image *img)
 {
-	if (game)
+	if (img)
 	{
-		if (game->wall)
-			mlx_delete_image(mlx, game->wall);
-		if (game->player)
-			mlx_delete_image(mlx, game->player);
-		if (game->collectable)
-			mlx_delete_image(mlx, game->collectable);
-		if (game->floor)
-			mlx_delete_image(mlx, game->floor);
-		if (game->exit)
-			mlx_delete_image(mlx, game->exit);
+		if (img->wall)
+			mlx_delete_image(mlx, img->wall);
+		if (img->player)
+			mlx_delete_image(mlx, img->player);
+		if (img->collectable)
+			mlx_delete_image(mlx, img->collectable);
+		if (img->floor)
+			mlx_delete_image(mlx, img->floor);
+		if (img->exit)
+			mlx_delete_image(mlx, img->exit);
 	}
 }

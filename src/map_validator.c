@@ -31,7 +31,7 @@ void	initialize_map(t_game *map)
 	map->count_e = 0;
 	map->player_x = 0;
 	map->player_y = 0;
-	map->exit_open = 0;
+	// map->exit_open = 0;
 }
 
 // static void	check_floodcheck(char **floodcheck)
@@ -55,7 +55,6 @@ void	initialize_map(t_game *map)
 // the height and width of the map
 //
 //	check_floodcheck(flood_check);
-
 bool	validate_map(t_game *map)
 {
 	char	**flood_map;
@@ -64,9 +63,7 @@ bool	validate_map(t_game *map)
 	initialize_map(map);
 	if (check_rectangle(map) == false)
 		exit_error("This map is not rectangular!");
-	if (check_horizontal_walls(map) == false)
-		exit_error("The map isn't surrounded with walls.");
-	if (check_vertical_walls(map) == false)
+	if (check_walls(map) == false)
 		exit_error("The map isn't surrounded with walls.");
 	check_chars(map);
 	find_player_position(map);

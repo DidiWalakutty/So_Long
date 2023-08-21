@@ -12,19 +12,8 @@
 
 #include "../so_long.h"
 
-static void	check_invalids(char c)
-{
-	if (c == '0' || c == '1')
-		return ;
-	else
-		exit_error("This is not a valid character");
-}
-
-// It sets len to the length of the first row in map.
-// We check each data[i]/row on it's length
-// compare it with len.
-// If it's not the same, it's not rectangular.
 // As long as it has four right angles, we're good.
+// Compare all y's with the length of y[0].
 bool	check_rectangle(t_game *map)
 {
 	int	i;
@@ -43,12 +32,9 @@ bool	check_rectangle(t_game *map)
 	return (true);
 }
 
-// This function checks if the upper and lower
-// horizontal rows are '1's only.
+// This function checks if the walls are '1's only.
 // height_y - 1, because of array index 0.
-// Checks the positions in different rows
-// simultaneously per iterations.
-bool	check_horizontal_walls(t_game *map)
+bool	check_walls(t_game *map)
 {
 	size_t	i;
 
@@ -61,18 +47,6 @@ bool	check_horizontal_walls(t_game *map)
 			return (false);
 		i++;
 	}
-	return (true);
-}
-
-// This functions checks if the first and last
-// vertical rows are '1's only.
-// width_x - 1, because of array index 0.
-// Checks the positions in different rows
-// simultaneously per iterations
-bool	check_vertical_walls(t_game *map)
-{
-	size_t	i;
-
 	i = 0;
 	while (map->data[i])
 	{
@@ -83,6 +57,14 @@ bool	check_vertical_walls(t_game *map)
 		i++;
 	}
 	return (true);
+}
+
+static void	check_invalids(char c)
+{
+	if (c == '0' || c == '1')
+		return ;
+	else
+		exit_error("This is an invalid char");
 }
 
 // This functions counts how many CEP's

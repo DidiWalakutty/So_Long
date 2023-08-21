@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/05 15:18:54 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/16 17:04:19 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/21 14:22:41 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ bool	initialize_window(t_game *map)
 	return (true);
 }
 
-t_game	*load_images(mlx_t *mlx, t_game *map)
+t_image	*load_images(mlx_t *mlx, t_game *map)
 {
-	t_game	*bag;
+	t_image	*bag;
 
-	bag = (t_game *)ft_calloc(1, sizeof(t_game));
+	bag = (t_image *)ft_calloc(1, sizeof(t_image));
 	if (!bag)
 		exit_error("Couldn't calloc space for images");
 	if (!load_wall_texture(mlx, bag) || \
@@ -33,14 +33,11 @@ t_game	*load_images(mlx_t *mlx, t_game *map)
 		!load_player_texture(mlx, bag) || \
 		!load_collectable_texture(mlx, bag) || \
 		!load_exit_texture(mlx, bag))
-		// || \
-		// !load_gameover(mlx, bag))
 	{
 		free_image_resources(mlx, bag);
 		exit_error("Couldn't load all images");
 	}
 	printf("loaded pictures\n");
-	fill_map(map, bag);
 	return (bag);
 }
 // static void	load_all_players(mlx_t *mlx, t_game *game)
@@ -51,15 +48,15 @@ t_game	*load_images(mlx_t *mlx, t_game *map)
 // 	load_player_right(mlx, game);
 // }
 
-void	fill_map(t_game *map, t_game *bag)
+void	fill_map(t_game *map)
 {
 	map->steps = 0;
 	map->death = 0;
-	if (!place_floor(map, bag) || \
-	!place_walls(map, bag) || \
-	!place_collectables(map, bag) || \
-	!place_exit(map, bag) || \
-	!place_player(map, bag))
+	if (!place_floor(map) || \
+	!place_walls(map) || \
+	!place_collectables(map) || \
+	!place_exit(map) || \
+	!place_player(map))
 		exit_error("Couldn't load images to window");
 	// load_all_players(map->mlx, bag);
 	// printf("loaded all player-moves\n");

@@ -26,7 +26,7 @@
 int	main(int argc, char **argv)
 {
 	t_game	map;
-	t_game	*images;
+	t_image	*images;
 	int		fd;
 	int		i;
 
@@ -41,13 +41,12 @@ int	main(int argc, char **argv)
 		exit_error("Couldn't validate map");
 	if (initialize_window(&map) == false)
 		free_complete_map(map.data);
-	// works up to loading images
-	// can't move player, address sanitizer
 	images = load_images(map.mlx, &map);
+	map.img = images;
+	fill_map(&map);
 	mlx_key_hook(map.mlx, keydata, &map);
 	mlx_loop(map.mlx);
 	// mlx_terminate(map.mlx);
 	// free_complete_map(&map);
-	
 	return (1);
 }
