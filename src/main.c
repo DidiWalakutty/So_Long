@@ -46,7 +46,7 @@ int	main(int argc, char **argv)
 	fill_map(&map);
 	mlx_key_hook(map.mlx, keydata, &map);
 	mlx_loop(map.mlx);
-	// mlx_terminate(map.mlx);
+	mlx_terminate(map.mlx);
 	// free_complete_map(&map);
 	return (1);
 }

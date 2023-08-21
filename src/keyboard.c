@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/11 17:17:40 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/21 17:49:35 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/21 19:48:05 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,14 +56,17 @@ void	keydata(mlx_key_data_t keys, void *data)
 	t_game	*game;
 
 	game = (t_game *) data;
-	if (keys.key == MLX_KEY_ESCAPE && keys.action == MLX_PRESS)
-		mlx_close_window(game->mlx);
-	if (keys.key == MLX_KEY_W && keys.action == MLX_PRESS)
-		move_up(game);
-	if (keys.key == MLX_KEY_S && keys.action == MLX_PRESS)
-		move_down(game);
-	if (keys.key == MLX_KEY_A && keys.action == MLX_PRESS)
-		move_left(game);
-	if (keys.key == MLX_KEY_D && keys.action == MLX_PRESS)
-		move_right(game);
+	if (keys.action == MLX_PRESS)
+	{
+		if (keys.key == MLX_KEY_ESCAPE)
+			mlx_close_window(game->mlx);
+		if (keys.key == MLX_KEY_W || keys.key == MLX_KEY_UP)
+			move_up(game);
+		if (keys.key == MLX_KEY_S || keys.key == MLX_KEY_DOWN)
+			move_down(game);
+		if (keys.key == MLX_KEY_A || keys.key == MLX_KEY_LEFT)
+			move_left(game);
+		if (keys.key == MLX_KEY_D || keys.key == MLX_KEY_RIGHT)
+			move_right(game);
+	}
 }
