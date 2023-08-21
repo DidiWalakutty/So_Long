@@ -36,7 +36,7 @@ typedef struct s_images
 	mlx_image_t		*collectable;
 	mlx_image_t		*gameover;
 	mlx_image_t		*exit;
-} t_image;
+}	t_image;
 
 typedef struct s_game
 {
