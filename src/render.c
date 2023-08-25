@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/06 15:58:56 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/21 14:25:03 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/25 18:35:32 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ bool	place_walls(t_game *map)
 			if (map->data[y][x] == '1')
 			{
 				if ((mlx_image_to_window(map->mlx, map->img->wall, \
-				x * 32, y * 32)) < 0)
+				x * PIXELS, y * PIXELS)) < 0)
 					return (false);
 			}
 			x++;
@@ -121,7 +121,7 @@ bool	place_floor(t_game *map)
 		{
 			if (map->data[y][x] == '0' || map->data[y][x] == '1' || \
 			map->data[y][x] == 'C' || map->data[y][x] == 'E' || \
-			map->data[y][x] == 'P')
+			map->data[y][x] == 'P' || map->data[y][x] == 'F')
 			{
 				if ((mlx_image_to_window(map->mlx, map->img->floor, \
 				x * PIXELS, y * PIXELS)) < 0)

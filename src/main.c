@@ -12,17 +12,6 @@
 
 #include "../so_long.h"
 
-// difference between map.game and map->game:
-//
-// map.game reaches directly in the box "map" and
-// grabbing what's in the "game" department.
-//
-// map->game points to the box "map" and says:
-// go to the "game" compartment and find what's
-// inside it.
-//
-// Use '&' when you want a function to modify 
-// the value of a variable and pass it by reference.
 int	main(int argc, char **argv)
 {
 	t_game	map;
@@ -32,7 +21,7 @@ int	main(int argc, char **argv)
 
 	i = 0;
 	if (argc != 2)
-		exit_error("There should only be 2 arguments");
+		exit_error("We can't play this tragic game with these arguments");
 	fd = receive_map(argc, argv);
 	map.data = process_map(fd);
 	if (!map.data)
@@ -44,9 +33,9 @@ int	main(int argc, char **argv)
 	images = load_images(map.mlx, &map);
 	map.img = images;
 	fill_map(&map);
+	ft_printf("You're bit by a tick! Let's get our antibiotics!\n");
 	mlx_key_hook(map.mlx, keydata, &map);
 	mlx_loop(map.mlx);
 	mlx_terminate(map.mlx);
-	// free_complete_map(&map);
 	return (1);
 }

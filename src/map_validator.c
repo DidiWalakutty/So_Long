@@ -31,30 +31,13 @@ void	initialize_map(t_game *map)
 	map->count_e = 0;
 	map->player_x = 0;
 	map->player_y = 0;
-	// map->exit_open = 0;
 }
-
-// static void	check_floodcheck(char **floodcheck)
-// {
-// 	int	y;
-// 	int	x;
-
-// 	y = 0;
-// 	while (floodcheck[y])
-// 	{
-// 		printf("floodcheck is: y: %s\n", floodcheck[y]);
-// 		y++;
-// 	}
-// 		printf("done\n");
-// }
 
 // This functions checks if the map
 // is rectangular, is surrounded with walls,
 // and has the right chars.
 // It initializes the map first, so it knows
 // the height and width of the map
-//
-//	check_floodcheck(flood_check);
 bool	validate_map(t_game *map)
 {
 	char	**flood_map;
@@ -62,9 +45,9 @@ bool	validate_map(t_game *map)
 
 	initialize_map(map);
 	if (check_rectangle(map) == false)
-		exit_error("This map is not rectangular!");
+		exit_error("This map isn't rectangular! Those ticks will escape!");
 	if (check_walls(map) == false)
-		exit_error("The map isn't surrounded with walls.");
+		exit_error("No surrounding walls, there's ticks everywhere!");
 	check_chars(map);
 	find_player_position(map);
 	flood_map = duplicate_map(map);
@@ -72,7 +55,7 @@ bool	validate_map(t_game *map)
 	if (valid_path(flood_check) == false)
 	{
 		free_complete_map(flood_check);
-		exit_error("Couldn't find a valid path.");
+		exit_error("Couldn't find a valid path in this infested forest.");
 	}
 	return (true);
 }

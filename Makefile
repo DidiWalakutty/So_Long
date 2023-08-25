@@ -6,7 +6,7 @@
 #    By: diwalaku <diwalaku@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/27 18:11:18 by diwalaku      #+#    #+#                  #
-#    Updated: 2023/08/21 15:31:51 by diwalaku      ########   odam.nl          #
+#    Updated: 2023/08/25 17:22:18 by diwalaku      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCFILES = main.c map_generator.c map_finder.c map_validator.c \
 			map_checker.c render.c free_and_error.c \
 			load_window.c load_sprites.c \
  			keyboard.c moves.c window.c \
-#			load_player_sprites.c \
+			load_directions_and_enemies.c enemy.c \
 
 SRCOBJ = $(SRCFILES:%.c=$(OBJDIR)%.o)
 
@@ -36,7 +36,6 @@ $(NAME): $(SRCOBJ)
 	$(MAKE) -C $(LIBMLX)
 	$(MAKE) -C $(LIBFT)
 	$(CC) $(GFLAGS) $(SRCOBJ) $(LIBMLX)/libmlx42.a -g3 -fsanitize=address $(LIBFT)/libft.a -lglfw3 -framework Cocoa -framework OpenGL -framework IOKit -o $(NAME)
-# Vergeet $(GFLAGS) niet weer toe te voegen na $(CC)
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	@mkdir -p obj

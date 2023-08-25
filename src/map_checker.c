@@ -61,7 +61,7 @@ bool	check_walls(t_game *map)
 
 static void	check_invalids(char c)
 {
-	if (c == '0' || c == '1')
+	if (c == '0' || c == '1' || c == 'F')
 		return ;
 	else
 		exit_error("This is an invalid char");

@@ -82,7 +82,9 @@ static bool	walkable(char **map, int y, int x)
 // printf("in loop: char is %c\n", copy_map[y_pos][x_pos]);
 char	**floodfill(char **copy_map, int y_pos, int x_pos)
 {
-	if (copy_map[y_pos][x_pos] != '1')
+	if (copy_map[y_pos][x_pos] == 'F')
+		copy_map[y_pos][x_pos] = '1';
+	else if (copy_map[y_pos][x_pos] != '1')
 	{
 		if (walkable(copy_map, y_pos, x_pos) == true)
 			copy_map[y_pos][x_pos] = 'T';
