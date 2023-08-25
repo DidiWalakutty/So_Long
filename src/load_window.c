@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/05 15:18:54 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/21 19:36:19 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/25 19:06:42 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,32 +32,29 @@ t_image	*load_images(mlx_t *mlx, t_game *map)
 		!load_floor_texture(mlx, bag) || \
 		!load_player_texture(mlx, bag) || \
 		!load_collectable_texture(mlx, bag) || \
-		!load_exit_texture(mlx, bag))
+		!load_exit_texture(mlx, bag) || \
+		!load_enemies(mlx, bag) || \
+		!load_player_up(mlx, bag) || \
+		!load_player_down(mlx, bag) || \
+		!load_player_left(mlx, bag) || \
+		!load_player_right(mlx, bag) || \
+		!load_death(mlx, bag))
 	{
 		free_image_resources(mlx, bag);
 		exit_error("Couldn't load all images");
 	}
-	printf("loaded pictures\n");
 	return (bag);
 }
-// static void	load_all_players(mlx_t *mlx, t_game *game)
-// {
-// 	load_player_up(mlx, game);
-// 	load_player_down(mlx, game);
-// 	load_player_left(mlx, game);
-// 	load_player_right(mlx, game);
-// }
 
 void	fill_map(t_game *map)
 {
 	map->steps = 0;
-	map->death = 0;
+	map->death = false;
 	if (!place_floor(map) || \
 	!place_walls(map) || \
 	!place_collectables(map) || \
 	!place_exit(map) || \
-	!place_player(map))
+	!place_player(map) || \
+	!place_enemy(map))
 		exit_error("Couldn't load images to window");
-	// load_all_players(map->mlx, bag);
-	// printf("loaded all player-moves\n");
 }

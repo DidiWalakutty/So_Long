@@ -34,7 +34,8 @@ typedef struct s_images
 	mlx_image_t		*player_left;
 	mlx_image_t		*player_right;
 	mlx_image_t		*collectable;
-	mlx_image_t		*gameover;
+	mlx_image_t		*enemy;
+	mlx_image_t		*you_die;
 	mlx_image_t		*exit;
 }	t_image;
 
@@ -85,15 +86,18 @@ t_image	*load_floor_texture(mlx_t *mlx, t_image *img);
 t_image	*load_player_texture(mlx_t *mlx, t_image *img);
 t_image	*load_collectable_texture(mlx_t *mlx, t_image *img);
 t_image	*load_exit_texture(mlx_t *mlx, t_image *img);
-// t_image	*load_player_up(mlx_t *mlx, t_image *img);
-// t_image	*load_player_down(mlx_t *mlx, t_image *img);
-// t_image	*load_player_left(mlx_t *mlx, t_image *img);
-// t_image	*load_player_right(mlx_t *mlx, t_image *img);
+t_image	*load_player_up(mlx_t *mlx, t_image *img);
+t_image	*load_player_down(mlx_t *mlx, t_image *img);
+t_image	*load_player_left(mlx_t *mlx, t_image *img);
+t_image	*load_player_right(mlx_t *mlx, t_image *img);
+t_image *load_enemies(mlx_t *mlx, t_image *img);
+t_image	*load_death(mlx_t *mlx, t_image *img);
 bool	place_walls(t_game *map);
 bool	place_player(t_game *map);
 bool	place_collectables(t_game *map);
 bool	place_exit(t_game *map);
 bool	place_floor(t_game *map);
+bool	place_enemy(t_game *map);
 
 // Move Functions
 void	keydata(mlx_key_data_t keys, void *data);
@@ -104,11 +108,13 @@ t_game	*move_right(t_game *game);
 void	remove_collectable(t_game *game, int y, int x);
 void	update_game(t_game *game);
 void	end_game(t_game *game);
-// void	refill_position(t_game *game);
 
-// Free and Errors
+// Free, Errors and messages
 void	exit_error(char *str);
 void	free_complete_map(char **map);
 void	free_image_resources(mlx_t *mlx, t_image *img);
+void	winner_message(t_game *game);
+void	death_message(void);
+void	you_die(t_game *game);
 
 #endif
