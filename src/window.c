@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/16 11:09:08 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/25 19:31:55 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/30 16:11:58 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	update_game(t_game *game)
 	mlx_delete_image(game->mlx, game->img->player);
 	if (game->steps >= 1)
 	{
+		print_moves(game);
 		ft_printf("%i moves\n", game->steps);
 	}
 	if (game->data[game->player_y][game->player_x] == 'F')

@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/06 15:58:56 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/25 18:35:32 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/30 14:38:32 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ bool	place_exit(t_game *map)
 			if (map->data[y][x] == 'E')
 			{
 				if ((mlx_image_to_window(map->mlx, map->img->exit, \
-				x * PIXELS, y * PIXELS)) < 0)
+				x * PIXELS + 8, y * PIXELS)) < 0)
 					return (false);
 			}
 			x++;
