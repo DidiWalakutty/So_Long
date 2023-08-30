@@ -37,6 +37,8 @@ typedef struct s_images
 	mlx_image_t		*enemy;
 	mlx_image_t		*you_die;
 	mlx_image_t		*exit;
+	mlx_image_t		*print_string;
+	mlx_image_t		*screen_moves;
 }	t_image;
 
 typedef struct s_game
@@ -52,7 +54,7 @@ typedef struct s_game
 	int				player_y;
 	int				steps;
 	int				total_collect;
-	int				death;	
+	int				death;
 	mlx_t			*mlx;
 	t_image			*img;
 }	t_game;
@@ -79,6 +81,8 @@ bool	valid_path(char **checked);
 bool	initialize_window(t_game *map);	
 t_image	*load_images(mlx_t *mlx, t_game *map);
 void	fill_map(t_game *map);
+void	moves_to_screen(t_game *map);
+void	print_moves(t_game *game);
 
 // Image Functions
 t_image	*load_wall_texture(mlx_t *mlx, t_image *img);
@@ -113,8 +117,10 @@ void	end_game(t_game *game);
 void	exit_error(char *str);
 void	free_complete_map(char **map);
 void	free_image_resources(mlx_t *mlx, t_image *img);
+void	not_enough_args(void);
 void	winner_message(t_game *game);
 void	death_message(void);
 void	you_die(t_game *game);
+void	start_game_message(void);
 
 #endif

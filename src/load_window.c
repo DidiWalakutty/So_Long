@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/05 15:18:54 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/25 19:06:42 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/08/30 16:50:53 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,20 @@ t_image	*load_images(mlx_t *mlx, t_game *map)
 	return (bag);
 }
 
+void	moves_to_screen(t_game *game)
+{
+	game->img->print_string = mlx_put_string(game->mlx, "Movecount:", 8, game->height_y * PIXELS - 25);
+}
+
+void	print_moves(t_game *game)
+{
+	char	*moves;
+
+	moves = ft_itoa(game->steps);
+	mlx_delete_image(game->mlx, game->img->screen_moves);
+	game->img->screen_moves = mlx_put_string(game->mlx, moves, 110, game->height_y * PIXELS - 25);
+}
+
 void	fill_map(t_game *map)
 {
 	map->steps = 0;
@@ -57,4 +71,5 @@ void	fill_map(t_game *map)
 	!place_player(map) || \
 	!place_enemy(map))
 		exit_error("Couldn't load images to window");
+	moves_to_screen(map);
 }

@@ -6,7 +6,7 @@
 #    By: diwalaku <diwalaku@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/27 18:11:18 by diwalaku      #+#    #+#                  #
-#    Updated: 2023/08/25 17:22:18 by diwalaku      ########   odam.nl          #
+#    Updated: 2023/08/30 17:00:25 by diwalaku      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,9 @@ all: libmlx libft $(NAME)
 $(NAME): $(SRCOBJ)
 	$(MAKE) -C $(LIBMLX)
 	$(MAKE) -C $(LIBFT)
-	$(CC) $(GFLAGS) $(SRCOBJ) $(LIBMLX)/libmlx42.a -g3 -fsanitize=address $(LIBFT)/libft.a -lglfw3 -framework Cocoa -framework OpenGL -framework IOKit -o $(NAME)
+	$(CC) $(GFLAGS) $(SRCOBJ) $(LIBMLX)/libmlx42.a $(LIBFT)/libft.a -lglfw3 -framework Cocoa -framework OpenGL -framework IOKit -o $(NAME)
+
+# -g3 -fsanitize=address
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	@mkdir -p obj
@@ -50,7 +52,6 @@ clean:
 fclean: clean
 	rm -f so_long
 	$(MAKE) clean -C $(LIBMLX)
-#	Does LIBMLX have fclean or just clean?
 	$(MAKE) fclean -C $(LIBFT)
 
 re: fclean all

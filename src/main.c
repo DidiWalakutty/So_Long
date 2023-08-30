@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 
 	i = 0;
 	if (argc != 2)
-		exit_error("We can't play this tragic game with these arguments");
+		not_enough_args();
 	fd = receive_map(argc, argv);
 	map.data = process_map(fd);
 	if (!map.data)
@@ -33,7 +33,8 @@ int	main(int argc, char **argv)
 	images = load_images(map.mlx, &map);
 	map.img = images;
 	fill_map(&map);
-	ft_printf("You're bit by a tick! Let's get our antibiotics!\n");
+	start_game_message();
+	
 	mlx_key_hook(map.mlx, keydata, &map);
 	mlx_loop(map.mlx);
 	mlx_terminate(map.mlx);
