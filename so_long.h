@@ -26,17 +26,22 @@
 
 typedef struct s_images
 {
-	mlx_image_t		*floor;
+	// mlx_texture_t	*wall_t;
 	mlx_image_t		*wall;
+	// mlx_texture_t	*floor_t;
+	mlx_image_t		*floor;
+	// mlx_texture_t	*player_t;
 	mlx_image_t		*player;
+	// mlx_texture_t	*collectable_t;
+	mlx_image_t		*collectable;
+	// mlx_texture_t	*exit_t;
+	mlx_image_t		*exit;
 	mlx_image_t		*player_up;
 	mlx_image_t		*player_down;
 	mlx_image_t		*player_left;
 	mlx_image_t		*player_right;
-	mlx_image_t		*collectable;
 	mlx_image_t		*enemy;
 	mlx_image_t		*you_die;
-	mlx_image_t		*exit;
 	mlx_image_t		*print_string;
 	mlx_image_t		*screen_moves;
 }	t_image;
@@ -59,6 +64,7 @@ typedef struct s_game
 	t_image			*img;
 }	t_game;
 
+
 // Base
 int		main(int argc, char **argv); 
 
@@ -79,6 +85,9 @@ bool	valid_path(char **checked);
 
 // Create Window
 bool	initialize_window(t_game *map);	
+// void	load_images(t_game *game);
+void	delete_textures(t_game *game);
+// void	text_to_img(t_game *game);
 t_image	*load_images(mlx_t *mlx, t_game *map);
 void	fill_map(t_game *map);
 void	moves_to_screen(t_game *map);
@@ -105,6 +114,7 @@ bool	place_enemy(t_game *map);
 
 // Move Functions
 void	keydata(mlx_key_data_t keys, void *data);
+// void	keydata(mlx_key_data_t keys, t_game *game);
 t_game	*move_up(t_game *game);
 t_game	*move_down(t_game *game);
 t_game	*move_left(t_game *game);

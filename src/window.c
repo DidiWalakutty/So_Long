@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/16 11:09:08 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/30 16:11:58 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/08 12:22:34 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	remove_collectable(t_game *game, int y, int x)
 // Doesn't remove collectable
 void	update_game(t_game *game)
 {
-	mlx_delete_image(game->mlx, game->img->player);
+	// mlx_delete_image(game->mlx, game->img->player);
 	if (game->steps >= 1)
 	{
 		print_moves(game);

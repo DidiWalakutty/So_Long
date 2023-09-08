@@ -57,7 +57,7 @@ bool	validate_map(t_game *map)
 		free_complete_map(flood_check);
 		exit_error("Couldn't find a valid path in this infested forest.");
 	}
-	// free_complete_map(flood_map);
+	free_complete_map(flood_map);
 	// free_complete_map(flood_check);
 	return (true);
 }
