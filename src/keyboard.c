@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/11 17:17:40 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/30 16:19:25 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/08 12:34:58 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	keydata(mlx_key_data_t keys, void *data)
 	t_game	*game;
 
 	game = (t_game *) data;
+	game->img->player->instances[0].enabled = false;
 	if (game->death == false)
 	{
 		if (keys.action == MLX_PRESS)

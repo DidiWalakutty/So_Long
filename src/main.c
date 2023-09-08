@@ -12,6 +12,11 @@
 
 #include "../so_long.h"
 
+void check_leaks(void)
+{
+	system("leaks so_long");
+}
+
 int	main(int argc, char **argv)
 {
 	t_game	map;
@@ -20,6 +25,8 @@ int	main(int argc, char **argv)
 	int		i;
 
 	i = 0;
+	atexit(check_leaks);
+	// system("leaks -q so_long");
 	if (argc != 2)
 		not_enough_args();
 	fd = receive_map(argc, argv);
@@ -34,7 +41,6 @@ int	main(int argc, char **argv)
 	map.img = images;
 	fill_map(&map);
 	start_game_message();
-	
 	mlx_key_hook(map.mlx, keydata, &map);
 	mlx_loop(map.mlx);
 	mlx_terminate(map.mlx);

@@ -12,13 +12,6 @@
 
 #include "../so_long.h"
 
-// This function checks the argc, opens the fd
-// and checks if there's a .ber file given
-// strncmp compares argv[i] on position strlen - 4
-// so points to the last 4 chars of argv[i].
-// It searches for ".ber". If it returns 0,
-// the ".ber" has been found, if it != 0,
-// those 4 chars don't match ".ber"
 int	receive_map(int argc, char **argv)
 {
 	int	fd;
@@ -55,9 +48,8 @@ static char	*add_row_to_map(char *s1, char *s2)
 	return (new);
 }
 
-// **result represents a 2D array map/grid and will use
-// X-rows and Y-columns. Each row is filled with gnl.
-// We add each row to the map and split it on each \n.
+// Each row is found through gnl.
+// Add each row to the map and split it on each \n.
 char	**process_map(int fd)
 {
 	char	*map;

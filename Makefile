@@ -6,13 +6,14 @@
 #    By: diwalaku <diwalaku@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/27 18:11:18 by diwalaku      #+#    #+#                  #
-#    Updated: 2023/08/30 17:00:25 by diwalaku      ########   odam.nl          #
+#    Updated: 2023/09/08 13:34:52 by diwalaku      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 	= 		so_long
 CC 		= 		gcc
 GFLAGS	= 	-Wall -Werror -Wextra
+# GFLAGS  +=	-fsanitize=address -g
 SRCDIR 	= 	src/
 OBJDIR 	= 	obj/
 
@@ -36,8 +37,6 @@ $(NAME): $(SRCOBJ)
 	$(MAKE) -C $(LIBMLX)
 	$(MAKE) -C $(LIBFT)
 	$(CC) $(GFLAGS) $(SRCOBJ) $(LIBMLX)/libmlx42.a $(LIBFT)/libft.a -lglfw3 -framework Cocoa -framework OpenGL -framework IOKit -o $(NAME)
-
-# -g3 -fsanitize=address
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	@mkdir -p obj
