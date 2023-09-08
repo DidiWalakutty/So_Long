@@ -34,7 +34,7 @@ static char	*add_row_to_map(char *s1, char *s2)
 	len1 = ft_strlen(s1);
 	len2 = ft_strlen(s2);
 	totallen = len1 + len2;
-	new = ft_calloc((totallen + 1), sizeof(char));
+	new = ft_calloc(sizeof(char), (totallen + 1));
 	if (!new)
 	{
 		free(s1);

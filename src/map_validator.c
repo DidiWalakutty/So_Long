@@ -17,7 +17,7 @@ static size_t	row_count(char **grid)
 	size_t	y;
 
 	y = 0;
-	while (grid[y])
+	while (grid[y] != '\0')
 		y++;
 	return (y);
 }
@@ -58,6 +58,5 @@ bool	validate_map(t_game *map)
 		exit_error("Couldn't find a valid path in this infested forest.");
 	}
 	free_complete_map(flood_map);
-	// free_complete_map(flood_check);
 	return (true);
 }

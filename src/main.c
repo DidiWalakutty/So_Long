@@ -37,12 +37,13 @@ int	main(int argc, char **argv)
 		exit_error("Couldn't validate map");
 	if (initialize_window(&map) == false)
 		free_complete_map(map.data);
-	images = load_images(map.mlx, &map);
+	images = load_images(map.mlx, &map); // how to free bag in load_images? just above terminate?
 	map.img = images;
 	fill_map(&map);
 	start_game_message();
 	mlx_key_hook(map.mlx, keydata, &map);
 	mlx_loop(map.mlx);
+	// free_image_resources(map.mlx, map.img);
 	mlx_terminate(map.mlx);
 	return (1);
 }

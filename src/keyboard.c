@@ -6,13 +6,12 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/11 17:17:40 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/09/08 12:34:58 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/08 13:41:24 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-// while or if death = false
 void	keydata(mlx_key_data_t keys, void *data)
 {
 	t_game	*game;
