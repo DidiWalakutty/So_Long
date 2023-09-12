@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/05 19:15:16 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/09/12 17:23:21 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/12 18:12:52 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,3 @@ void	make_images(t_game *map, t_image *img)
 	img->rip = mlx_texture_to_image(map->mlx, img->rip_t);
 }
 
-// bool	image_loading(t_game *game)
-// {
-// 	if (!images_init(game))
-// 	{
-// 		free_textures(game->img);
-// 		mlx_terminate(game->mlx);
-// 		return (false);
-// 	}
-// 	return (true);
-// }

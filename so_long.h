@@ -72,14 +72,12 @@ typedef struct s_game
 
 // Base
 int		main(int argc, char **argv); 
-
-// Map Functions
 int		receive_map(char **argv);
 char	**process_map(int fd);
-void	initialize_map(t_game *map);
+bool	validate_map(t_game *map);
 
 // Map Validation
-bool	validate_map(t_game *map);
+void	map_settings(t_game *map);
 bool	check_rectangle(t_game *map);
 bool	check_walls(t_game *map);
 void	check_chars(t_game *map);
@@ -88,7 +86,7 @@ char	**duplicate_map(t_game *map);
 char	**floodfill(char **copy_map, int y_pos, int x_pos);
 bool	valid_path(char **checked);
 
-// Create Window
+// Create Screen
 bool	initialize_window(t_game *map);	
 void	delete_textures(t_game *game);
 void	fill_map(t_game *map);

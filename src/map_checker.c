@@ -16,7 +16,7 @@
 // Compare all y's with the length of y[0].
 bool	check_rectangle(t_game *map)
 {
-	int	i;
+	int		i;
 	size_t	len;
 
 	i = 0;
