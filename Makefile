@@ -6,7 +6,7 @@
 #    By: diwalaku <diwalaku@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/27 18:11:18 by diwalaku      #+#    #+#                  #
-#    Updated: 2023/09/08 13:34:52 by diwalaku      ########   odam.nl          #
+#    Updated: 2023/09/12 17:49:36 by diwalaku      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,9 +19,8 @@ OBJDIR 	= 	obj/
 
 SRCFILES = main.c map_generator.c map_finder.c map_validator.c \
 			map_checker.c render.c free_and_error.c \
-			load_window.c load_sprites.c \
- 			keyboard.c moves.c window.c \
-			load_directions_and_enemies.c enemy.c \
+			load_window.c load_sprites.c keyboard.c \
+			moves.c window.c enemy.c \
 
 SRCOBJ = $(SRCFILES:%.c=$(OBJDIR)%.o)
 
@@ -40,8 +39,7 @@ $(NAME): $(SRCOBJ)
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	@mkdir -p obj
-	# $(CC) -c $(GFLAGS) -o $@ $<
-	$(CC) -c -o $@ $<
+	$(CC) -c $(GFLAGS) -o $@ $<
 
 clean:
 	$(MAKE) clean -C $(LIBMLX)

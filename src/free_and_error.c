@@ -31,7 +31,23 @@ void	free_complete_map(char **map)
 	free(map);
 }
 
-void	free_image_resources(mlx_t *mlx, t_image *img)
+void	free_textures(t_image *img)
+{
+	mlx_delete_texture(img->floor_t);
+	mlx_delete_texture(img->wall_t);
+	mlx_delete_texture(img->player_t);
+	mlx_delete_texture(img->collectable_t);
+	mlx_delete_texture(img->exit_t);
+	mlx_delete_texture(img->player_up_t);
+	mlx_delete_texture(img->player_down_t);
+	mlx_delete_texture(img->player_left_t);
+	mlx_delete_texture(img->player_right_t);
+	mlx_delete_texture(img->enemy_t);
+	mlx_delete_texture(img->rip_t);
+	free(img);
+}
+
+void	free_images(mlx_t *mlx, t_image *img)
 {
 	if (img)
 	{
