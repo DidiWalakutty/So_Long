@@ -16,13 +16,13 @@
 // {
 // 	system("leaks so_long");
 // }
+// atexit(check_leaks);
 
 int	main(int argc, char **argv)
 {
 	t_game	map;
 	int		fd;
 
-	// atexit(check_leaks);
 	if (argc != 2)
 		not_enough_args();
 	map.img = (t_image *)ft_calloc(1, sizeof(t_image));
