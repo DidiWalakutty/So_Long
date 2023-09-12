@@ -18,6 +18,11 @@
 // }
 // atexit(check_leaks);
 
+
+
+// Should terminal end when it's gameover???
+
+
 int	main(int argc, char **argv)
 {
 	t_game	map;
