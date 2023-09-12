@@ -1,6 +1,7 @@
 # Files to ignore
 .cache/
 .DS_Store
+.vscode
 *.dSYM
 /MLX42
 /libft

@@ -46,20 +46,3 @@ void	free_textures(t_image *img)
 	mlx_delete_texture(img->rip_t);
 	free(img);
 }
-
-void	free_images(mlx_t *mlx, t_image *img)
-{
-	if (img)
-	{
-		if (img->wall)
-			mlx_delete_image(mlx, img->wall);
-		if (img->player)
-			mlx_delete_image(mlx, img->player);
-		if (img->collectable)
-			mlx_delete_image(mlx, img->collectable);
-		if (img->floor)
-			mlx_delete_image(mlx, img->floor);
-		if (img->exit)
-			mlx_delete_image(mlx, img->exit);
-	}
-}

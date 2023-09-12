@@ -88,14 +88,12 @@ bool	valid_path(char **checked);
 
 // Create Screen
 bool	initialize_window(t_game *map);	
-void	delete_textures(t_game *game);
+void	make_images(t_game *map, t_image *img);
 void	fill_map(t_game *map);
 void	moves_to_screen(t_game *map);
 void	print_moves(t_game *game);
-mlx_texture_t *text_protected(mlx_texture_t *texture);
-void	make_images(t_game *map, t_image *img);
 
-// Image Functions
+// Place images
 bool	place_walls(t_game *map);
 bool	place_player(t_game *map);
 bool	place_collectables(t_game *map);
@@ -105,24 +103,21 @@ bool	place_enemy(t_game *map);
 
 // Move Functions
 void	keydata(mlx_key_data_t keys, void *data);
-// void	keydata(mlx_key_data_t keys, t_game *game);
 t_game	*move_up(t_game *game);
 t_game	*move_down(t_game *game);
 t_game	*move_left(t_game *game);
 t_game	*move_right(t_game *game);
 void	remove_collectable(t_game *game);
 void	update_game(t_game *game);
-void	end_game(t_game *game);
 
 // Free, Errors and messages
 void	exit_error(char *str);
-void	free_complete_map(char **map);
-void	free_textures(t_image *img);
-void	free_images(mlx_t *mlx, t_image *img);
 void	not_enough_args(void);
+void	start_game_message(void);
 void	winner_message(t_game *game);
 void	death_message(void);
 void	you_die(t_game *game);
-void	start_game_message(void);
+void	free_complete_map(char **map);
+void	free_textures(t_image *img);
 
 #endif

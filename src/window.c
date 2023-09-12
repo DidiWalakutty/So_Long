@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/16 11:09:08 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/09/12 17:29:16 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/12 19:05:03 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,8 @@ void	remove_collectable(t_game *game)
 	}
 }
 
-// reprint same number of moves if hitting wall?
-// Doesn't remove collectable
 void	update_game(t_game *game)
 {
-	// mlx_delete_image(game->mlx, game->img->player);
 	if (game->steps >= 1)
 	{
 		print_moves(game);

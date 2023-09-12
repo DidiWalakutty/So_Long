@@ -6,12 +6,11 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/05 19:15:16 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/09/12 18:12:52 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/12 19:12:01 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
 
 static void	make_textures(t_image *img)
 {
@@ -43,4 +42,3 @@ void	make_images(t_game *map, t_image *img)
 	img->enemy = mlx_texture_to_image(map->mlx, img->enemy_t);
 	img->rip = mlx_texture_to_image(map->mlx, img->rip_t);
 }
-

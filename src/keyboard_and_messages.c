@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/11 17:17:40 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/09/12 18:53:40 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/12 19:11:38 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	keydata(mlx_key_data_t keys, void *data)
 
 void	start_game_message(void)
 {
-	ft_printf("\nUh-oh! Looks like you've had a not-so-friendly encounter with ");
-	ft_printf("a sneaky tick!\n\nThese little critters can carry Lyme disease ");
+	ft_printf("\nUh-oh! Looks like you've had a not-so-friendly encounter with");
+	ft_printf(" a sneaky tick!\n\nThese little critters can carry Lyme disease ");
 	ft_printf("and other nasty co-infections.\nPrepare for a wilde ride of ");
 	ft_printf("symptoms, like: pain and loss of feelings in your limbs, ");
 	ft_printf("a never-ending fever feeling, extreme fatigue\n");
@@ -66,13 +66,14 @@ void	winner_message(t_game *game)
 	ft_printf("CONGRATULATIONS!\nYou're going to be Lyme free ");
 	ft_printf("with these antibiotics.\nNo brainfog, herxheimer");
 	ft_printf(", pain or other symptoms for you!\n");
+	ft_printf("\n");
 }
 
 void	death_message(void)
 {
-	ft_printf("That's another tick bite, but there's a bullseye!\n");
+	ft_printf("That's another tick bite, but this time it has a bullseye!\n");
 	ft_printf("You're infected with Lyme disease and its co-infections.\n");
 	ft_printf("Get ready for awful symptoms like brainfog, herxheimers");
-	ft_printf("and lost of pain and meds to fight this off.\n");
-	ft_printf("RIP. You're only sort of alive and fully housebound :(\n");
+	ft_printf(" and lots of pain and meds to fight this off.\n");
+	ft_printf("RIP. You're only half alive and fully housebound :(\n");
 }
