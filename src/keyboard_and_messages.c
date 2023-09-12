@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/11 17:17:40 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/09/12 19:11:38 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/12 19:19:17 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	start_game_message(void)
 {
 	ft_printf("\nUh-oh! Looks like you've had a not-so-friendly encounter with");
 	ft_printf(" a sneaky tick!\n\nThese little critters can carry Lyme disease ");
-	ft_printf("and other nasty co-infections.\nPrepare for a wilde ride of ");
-	ft_printf("symptoms, like: pain and loss of feelings in your limbs, ");
+	ft_printf("and other nasty co-infections.\nPrepare for a wild ride of ");
+	ft_printf("symptoms, like: pain and loss of feelings in your limbs,\n ");
 	ft_printf("a never-ending fever feeling, extreme fatigue\n");
 	ft_printf("and possible heart problems.\nEven the gentlest ray of light ");
 	ft_printf("can feel like a fiery dragon's breath!\n\nNow, let's prevent ");
