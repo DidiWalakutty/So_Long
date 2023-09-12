@@ -17,7 +17,7 @@
 bool	check_rectangle(t_game *map)
 {
 	int	i;
-	int	len;
+	size_t	len;
 
 	i = 0;
 	len = ft_strlen(map->data[0]);

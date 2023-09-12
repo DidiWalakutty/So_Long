@@ -26,22 +26,28 @@
 
 typedef struct s_images
 {
-	// mlx_texture_t	*wall_t;
+	mlx_texture_t	*wall_t;
 	mlx_image_t		*wall;
-	// mlx_texture_t	*floor_t;
+	mlx_texture_t	*floor_t;
 	mlx_image_t		*floor;
-	// mlx_texture_t	*player_t;
+	mlx_texture_t	*player_t;
 	mlx_image_t		*player;
-	// mlx_texture_t	*collectable_t;
+	mlx_texture_t	*collectable_t;
 	mlx_image_t		*collectable;
-	// mlx_texture_t	*exit_t;
+	mlx_texture_t	*exit_t;
 	mlx_image_t		*exit;
+	mlx_texture_t	*player_up_t;
 	mlx_image_t		*player_up;
+	mlx_texture_t	*player_down_t;
 	mlx_image_t		*player_down;
+	mlx_texture_t	*player_left_t;
 	mlx_image_t		*player_left;
+	mlx_texture_t	*player_right_t;
 	mlx_image_t		*player_right;
+	mlx_texture_t	*enemy_t;
 	mlx_image_t		*enemy;
-	mlx_image_t		*you_die;
+	mlx_texture_t	*rip_t;
+	mlx_image_t		*rip;
 	mlx_image_t		*print_string;
 	mlx_image_t		*screen_moves;
 }	t_image;
@@ -64,12 +70,11 @@ typedef struct s_game
 	t_image			*img;
 }	t_game;
 
-
 // Base
 int		main(int argc, char **argv); 
 
 // Map Functions
-int		receive_map(int argc, char **argv);
+int		receive_map(char **argv);
 char	**process_map(int fd);
 void	initialize_map(t_game *map);
 
@@ -85,26 +90,14 @@ bool	valid_path(char **checked);
 
 // Create Window
 bool	initialize_window(t_game *map);	
-// void	load_images(t_game *game);
 void	delete_textures(t_game *game);
-// void	text_to_img(t_game *game);
-t_image	*load_images(mlx_t *mlx, t_game *map);
 void	fill_map(t_game *map);
 void	moves_to_screen(t_game *map);
 void	print_moves(t_game *game);
+mlx_texture_t *text_protected(mlx_texture_t *texture);
+void	make_images(t_game *map, t_image *img);
 
 // Image Functions
-t_image	*load_wall_texture(mlx_t *mlx, t_image *img);
-t_image	*load_floor_texture(mlx_t *mlx, t_image *img);
-t_image	*load_player_texture(mlx_t *mlx, t_image *img);
-t_image	*load_collectable_texture(mlx_t *mlx, t_image *img);
-t_image	*load_exit_texture(mlx_t *mlx, t_image *img);
-t_image	*load_player_up(mlx_t *mlx, t_image *img);
-t_image	*load_player_down(mlx_t *mlx, t_image *img);
-t_image	*load_player_left(mlx_t *mlx, t_image *img);
-t_image	*load_player_right(mlx_t *mlx, t_image *img);
-t_image *load_enemies(mlx_t *mlx, t_image *img);
-t_image	*load_death(mlx_t *mlx, t_image *img);
 bool	place_walls(t_game *map);
 bool	place_player(t_game *map);
 bool	place_collectables(t_game *map);
@@ -119,14 +112,15 @@ t_game	*move_up(t_game *game);
 t_game	*move_down(t_game *game);
 t_game	*move_left(t_game *game);
 t_game	*move_right(t_game *game);
-void	remove_collectable(t_game *game, int y, int x);
+void	remove_collectable(t_game *game);
 void	update_game(t_game *game);
 void	end_game(t_game *game);
 
 // Free, Errors and messages
 void	exit_error(char *str);
 void	free_complete_map(char **map);
-void	free_image_resources(mlx_t *mlx, t_image *img);
+void	free_textures(t_image *img);
+void	free_images(mlx_t *mlx, t_image *img);
 void	not_enough_args(void);
 void	winner_message(t_game *game);
 void	death_message(void);

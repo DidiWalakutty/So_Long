@@ -6,24 +6,11 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/25 17:13:14 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/25 19:32:24 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/10 19:15:29 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
-t_image	*load_death(mlx_t *mlx, t_image *img)
-{
-	mlx_texture_t	*death;
-
-	death = mlx_load_png("sprites/death.png");
-	if (!death)
-		exit_error("Couldn't load death png");
-	img->you_die = mlx_texture_to_image(mlx, death);
-	if (!img->you_die)
-		exit_error("Couldn't create your death image");
-	return (img);
-}
 
 bool	place_enemy(t_game *map)
 {
@@ -65,7 +52,7 @@ void	you_die(t_game *game)
 				game->data[y][x] == 'C' || game->data[y][x] == 'E' || \
 				game->data[y][x] == 'P')
 			{
-				if ((mlx_image_to_window(game->mlx, game->img->you_die, \
+				if ((mlx_image_to_window(game->mlx, game->img->rip, \
 				x * PIXELS, y * PIXELS)) < 0)
 					exit_error("couldn't place RIP images");
 			}

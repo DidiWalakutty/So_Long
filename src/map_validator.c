@@ -22,6 +22,7 @@ static size_t	row_count(char **grid)
 	return (y);
 }
 
+// Still works if steps and death are initalized here? Before done in fill_map
 void	initialize_map(t_game *map)
 {
 	map->width_x = ft_strlen(map->data[0]);
@@ -31,6 +32,8 @@ void	initialize_map(t_game *map)
 	map->count_e = 0;
 	map->player_x = 0;
 	map->player_y = 0;
+	map->steps = 0;
+	map->death = false;
 }
 
 // This functions checks if the map

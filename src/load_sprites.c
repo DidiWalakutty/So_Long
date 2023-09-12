@@ -6,87 +6,51 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/05 19:15:16 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/25 18:18:08 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/12 17:23:21 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-// mlx_load_png loads a PNG file and returns a mlx_texture_t
-// file. 
-// mlx_text_to_image converts the pixel data (width heigth etc)
-// and returns a pointer to the transformed pixel data.
-// mlx_image_to_window takes a pointer to mlx_image_t and
-// a pointer to the graphics window.
-t_image	*load_wall_texture(mlx_t *mlx, t_image *img)
-{
-	mlx_texture_t	*wall;
 
-	wall = mlx_load_png("sprites/wall.png");
-	if (!wall)
-		exit_error("Couldn't load wall png");
-	img->wall = mlx_texture_to_image(mlx, wall);
-	if (!img->wall)
-		exit_error("Couldn't create wall image");
-	mlx_delete_texture(wall);
-	return (img);
+static void	make_textures(t_image *img)
+{
+	img->floor_t = mlx_load_png("sprites/floor.png");
+	img->wall_t = mlx_load_png("sprites/wall.png");
+	img->exit_t = mlx_load_png("sprites/exit.png");
+	img->collectable_t = mlx_load_png("sprites/collectable.png");
+	img->player_t = mlx_load_png("sprites/player.png");
+	img->player_up_t = mlx_load_png("sprites/player_up.png");
+	img->player_down_t = mlx_load_png("sprites/player_down.png");
+	img->player_left_t = mlx_load_png("sprites/player_left.png");
+	img->player_right_t = mlx_load_png("sprites/player_right.png");
+	img->enemy_t = mlx_load_png("sprites/enemies.png");
+	img->rip_t = mlx_load_png("sprites/death.png");
 }
 
-// need to delete textures if we already free_image_resources in load_images?
-//
-// place player_texture back to player_sprites.c
-t_image	*load_player_texture(mlx_t *mlx, t_image *img)
+void	make_images(t_game *map, t_image *img)
 {
-	mlx_texture_t	*player;
-
-	player = mlx_load_png("sprites/player.png");
-	if (!player)
-		exit_error("Couldn't load player png");
-	img->player = mlx_texture_to_image(mlx, player);
-	if (!img->player)
-		exit_error("Couldn't create player image");
-	mlx_delete_texture(player);
-	return (img);
+	make_textures(img);
+	img->floor = mlx_texture_to_image(map->mlx, img->floor_t);
+	img->wall = mlx_texture_to_image(map->mlx, img->wall_t);
+	img->exit = mlx_texture_to_image(map->mlx, img->exit_t);
+	img->collectable = mlx_texture_to_image(map->mlx, img->collectable_t);
+	img->player = mlx_texture_to_image(map->mlx, img->player_t);
+	img->player_up = mlx_texture_to_image(map->mlx, img->player_up_t);
+	img->player_down = mlx_texture_to_image(map->mlx, img->player_down_t);
+	img->player_left = mlx_texture_to_image(map->mlx, img->player_left_t);
+	img->player_right = mlx_texture_to_image(map->mlx, img->player_right_t);
+	img->enemy = mlx_texture_to_image(map->mlx, img->enemy_t);
+	img->rip = mlx_texture_to_image(map->mlx, img->rip_t);
 }
 
-t_image	*load_floor_texture(mlx_t *mlx, t_image *img)
-{
-	mlx_texture_t	*floor;
-
-	floor = mlx_load_png("sprites/floor.png");
-	if (!floor)
-		exit_error("Couldn't load floor png");
-	img->floor = mlx_texture_to_image(mlx, floor);
-	if (!img->floor)
-		exit_error("Couldn't create floor image");
-	mlx_delete_texture(floor);
-	return (img);
-}
-
-t_image	*load_collectable_texture(mlx_t *mlx, t_image *img)
-{
-	mlx_texture_t	*collectable;
-
-	collectable = mlx_load_png("sprites/collectable.png");
-	if (!collectable)
-		exit_error("Couldn't load collectable png");
-	img->collectable = mlx_texture_to_image(mlx, collectable);
-	if (!img->collectable)
-		exit_error("Couldn't craete collectable image");
-	mlx_delete_texture(collectable);
-	return (img);
-}
-
-t_image	*load_exit_texture(mlx_t *mlx, t_image *img)
-{
-	mlx_texture_t	*exit;
-
-	exit = mlx_load_png("sprites/exit.png");
-	if (!exit)
-		exit_error("Couldn't load exit png");
-	img->exit = mlx_texture_to_image(mlx, exit);
-	if (!img->exit)
-		exit_error("Couldn't create exit image");
-	mlx_delete_texture(exit);
-	return (img);
-}
+// bool	image_loading(t_game *game)
+// {
+// 	if (!images_init(game))
+// 	{
+// 		free_textures(game->img);
+// 		mlx_terminate(game->mlx);
+// 		return (false);
+// 	}
+// 	return (true);
+// }

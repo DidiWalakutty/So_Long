@@ -12,7 +12,7 @@
 
 #include "../so_long.h"
 
-int	receive_map(int argc, char **argv)
+int	receive_map(char **argv)
 {
 	int	fd;
 
