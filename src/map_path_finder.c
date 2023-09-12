@@ -12,9 +12,8 @@
 
 #include "../so_long.h"
 
-// This functions searches for the position of
-// the start position of the player "P".
-// Y is length, x is width.
+// This functions searches for the start position 
+// of the player "P".
 void	find_player_position(t_game *map)
 {
 	int	x;
@@ -40,11 +39,9 @@ void	find_player_position(t_game *map)
 
 // Copy the map to check for floodfill.
 // Create a 2D array, so **.
-//
-// printf("map_copy is: %s\n", map->map_copy[x]);
 char	**duplicate_map(t_game *map)
 {
-	int		x;
+	int	x;
 
 	x = 0;
 	map->map_copy = (char **)ft_calloc((map->height_y + 1), sizeof(char *));
@@ -72,14 +69,10 @@ static bool	walkable(char **map, int y, int x)
 		return (false);
 }
 
-// This function crosses and marks all connectable
-// walkable cells in the array, using recursion.
-// The recursion calls handle the adjacent cells - or
-// 4 directionally. When it's done, all cells that aren't
-// '1' will be marked with 'T' (for true).
-// All non-walkable/'1' cells are left untouched.
-//
-// printf("in loop: char is %c\n", copy_map[y_pos][x_pos]);
+// This function crosses and marks all waklable cells
+// in the array. Only walkable cells will be marked with
+// 'T' (for true). Walls and enemies become '1', since
+// they aren't walkable.
 char	**floodfill(char **copy_map, int y_pos, int x_pos)
 {
 	if (copy_map[y_pos][x_pos] == 'F')
@@ -99,7 +92,7 @@ char	**floodfill(char **copy_map, int y_pos, int x_pos)
 }
 
 // This function checks if the data from floodfill
-// contains 'T' from True, or '1's, walls only.
+// forms a valid/walkable path. Incl. diagonal 1's.
 bool	valid_path(char **checked)
 {
 	int	x;

@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/05 15:18:54 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/09/12 17:14:25 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/12 18:52:23 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 bool	initialize_window(t_game *map)
 {
 	map->mlx = mlx_init(map->width_x * PIXELS, map->height_y * PIXELS, \
-				"so_long", false);
+				"Lyme Warriors", false);
 	if (!map->mlx)
 		return (false);
 	return (true);
@@ -38,7 +38,6 @@ void	print_moves(t_game *game)
 	free(moves);
 }
 
-// Did steps and death in initalize map. Works?
 void	fill_map(t_game *map)
 {
 	if (!place_floor(map) || \

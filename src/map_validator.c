@@ -22,8 +22,7 @@ static size_t	row_count(char **grid)
 	return (y);
 }
 
-// Still works if steps and death are initalized here? Before done in fill_map
-void	initialize_map(t_game *map)
+void	map_settings(t_game *map)
 {
 	map->width_x = ft_strlen(map->data[0]);
 	map->height_y = row_count(map->data);
@@ -46,11 +45,11 @@ bool	validate_map(t_game *map)
 	char	**flood_map;
 	char	**flood_check;
 
-	initialize_map(map);
+	map_settings(map);
 	if (check_rectangle(map) == false)
-		exit_error("This map isn't rectangular! Those ticks will escape!");
+		exit_error("This map isn't rectangular.");
 	if (check_walls(map) == false)
-		exit_error("No surrounding walls, there's ticks everywhere!");
+		exit_error("This map has no surrounding walls.");
 	check_chars(map);
 	find_player_position(map);
 	flood_map = duplicate_map(map);

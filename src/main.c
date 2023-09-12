@@ -12,17 +12,17 @@
 
 #include "../so_long.h"
 
-void check_leaks(void)
-{
-	system("leaks so_long");
-}
+// void check_leaks(void)
+// {
+// 	system("leaks so_long");
+// }
 
 int	main(int argc, char **argv)
 {
 	t_game	map;
 	int		fd;
 
-	atexit(check_leaks);
+	// atexit(check_leaks);
 	if (argc != 2)
 		not_enough_args();
 	map.img = (t_image *)ft_calloc(1, sizeof(t_image));
