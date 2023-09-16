@@ -16,6 +16,8 @@ Treatment can include two kinds of antibiotics, so exit through the other antibi
 
 **Winning**
 
+![gif-win](./so_long_lyme.gif)
+
 **Losing**
 
 ![gif-lose](./so_long_lose.gif)
