@@ -35,10 +35,8 @@ void	map_settings(t_game *map)
 	map->death = false;
 }
 
-// This functions checks if the map
-// is rectangular, is surrounded with walls,
-// and has the right chars.
-// It initializes the map first, so it knows
+// This functions checks if the map is valid.
+// It sets the settings of the map first, so it knows
 // the height and width of the map
 bool	validate_map(t_game *map)
 {

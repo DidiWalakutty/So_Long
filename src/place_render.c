@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   render.c                                           :+:    :+:            */
+/*   place_render.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/06 15:58:56 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/30 14:38:32 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/16 11:40:09 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,6 +108,8 @@ bool	place_exit(t_game *map)
 	return (true);
 }
 
+// Place floors first, so in case of removing
+// a collectable etc you don't need to reset it.
 bool	place_floor(t_game *map)
 {
 	int	x;

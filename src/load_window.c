@@ -6,12 +6,14 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/05 15:18:54 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/09/12 18:52:23 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/16 11:40:57 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
+// Resizing of the window is possible
+// through this function.
 bool	initialize_window(t_game *map)
 {
 	map->mlx = mlx_init(map->width_x * PIXELS, map->height_y * PIXELS, \

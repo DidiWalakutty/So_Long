@@ -6,13 +6,12 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/16 11:09:08 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/09/12 19:05:03 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/16 11:40:19 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-// print moves and collectables in window?
 void	remove_collectable(t_game *game)
 {
 	int	i;

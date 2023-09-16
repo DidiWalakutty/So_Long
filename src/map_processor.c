@@ -48,7 +48,7 @@ static char	*add_row_to_map(char *s1, char *s2)
 	return (new);
 }
 
-// Each row is found through gnl.
+// Each row is found through GNL.
 // Add each row to the map and split it on each \n.
 char	**process_map(int fd)
 {
