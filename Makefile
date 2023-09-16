@@ -6,16 +6,16 @@
 #    By: diwalaku <diwalaku@student.42.fr>            +#+                      #
 #                                                    +#+                       #
 #    Created: 2023/07/27 18:11:18 by diwalaku      #+#    #+#                  #
-#    Updated: 2023/09/12 18:52:13 by diwalaku      ########   odam.nl          #
+#    Updated: 2023/09/16 11:45:41 by diwalaku      ########   odam.nl          #
 #                                                                              #
 # **************************************************************************** #
 
 NAME 	= 		so_long
 CC 		= 		gcc
-GFLAGS	= 	-Wall -Werror -Wextra
+GFLAGS	= 		-Wall -Werror -Wextra
 # GFLAGS  +=	-fsanitize=address -g
-SRCDIR 	= 	src/
-OBJDIR 	= 	obj/
+SRCDIR 	= 		src/
+OBJDIR 	= 		obj/
 
 SRCFILES = main.c map_processor.c map_path_finder.c map_validator.c \
 			map_checker.c place_render.c free_and_error.c \
