@@ -69,7 +69,7 @@ static bool	walkable(char **map, int y, int x)
 		return (false);
 }
 
-// This function crosses and marks all waklable cells
+// This function crosses and marks all walkable cells
 // in the array. Only walkable cells will be marked with
 // 'T' (for true). Walls and enemies become '1', since
 // they aren't walkable.
@@ -92,7 +92,7 @@ char	**floodfill(char **copy_map, int y_pos, int x_pos)
 }
 
 // This function checks if the data from floodfill
-// forms a valid/walkable path. Incl. diagonal 1's.
+// forms a valid/walkable path. Incl. diagonal 1's and enemies.
 bool	valid_path(char **checked)
 {
 	int	x;

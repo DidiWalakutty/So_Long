@@ -6,12 +6,13 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/11 21:33:30 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/09/12 17:01:59 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/16 11:39:13 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
+// Changes the image sprite to the right move.
 static void	change_direction(t_game *game, char c, int x, int y)
 {
 	if (c == 'u')

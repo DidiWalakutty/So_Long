@@ -32,7 +32,7 @@ bool	check_rectangle(t_game *map)
 	return (true);
 }
 
-// This function checks if the walls are '1's only.
+// This function checks if the surrounding walls are '1's only.
 // height_y - 1, because of array index 0.
 bool	check_walls(t_game *map)
 {
@@ -67,11 +67,6 @@ static void	check_invalids(char c)
 		exit_error("This is an invalid char");
 }
 
-// This functions counts how many CEP's
-// are found and if they have a max or min
-// of player-pos, exit and collectibles.
-// Also checks if the other chars are only
-// allowed chars. Set i to 1, because 0 is 1's only
 void	check_chars(t_game *map)
 {
 	int	y;

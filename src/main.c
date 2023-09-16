@@ -12,12 +12,6 @@
 
 #include "../so_long.h"
 
-// void check_leaks(void)
-// {
-// 	system("leaks so_long");
-// }
-// atexit(check_leaks);
-
 int	main(int argc, char **argv)
 {
 	t_game	map;

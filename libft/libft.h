@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2022/10/12 18:27:25 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/08/05 11:28:21 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/14 16:20:32 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 # include <limits.h>
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE (3)
+#  define BUFFER_SIZE 3
 # endif
 
 # if BUFFER_SIZE < 0

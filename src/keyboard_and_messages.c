@@ -6,12 +6,14 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/11 17:17:40 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/09/12 19:19:17 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/16 11:41:28 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
+// Disable the image of the first
+// player sprite.
 void	keydata(mlx_key_data_t keys, void *data)
 {
 	t_game	*game;
