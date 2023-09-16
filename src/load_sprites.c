@@ -6,7 +6,7 @@
 /*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2023/08/05 19:15:16 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/09/12 19:12:01 by diwalaku      ########   odam.nl         */
+/*   Updated: 2023/09/16 11:44:58 by diwalaku      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void	make_textures(t_image *img)
 	img->player_down_t = mlx_load_png("sprites/player_down.png");
 	img->player_left_t = mlx_load_png("sprites/player_left.png");
 	img->player_right_t = mlx_load_png("sprites/player_right.png");
-	img->enemy_t = mlx_load_png("sprites/enemies.png");
+	img->enemy_t = mlx_load_png("sprites/enemy.png");
 	img->rip_t = mlx_load_png("sprites/death.png");
 }
 
