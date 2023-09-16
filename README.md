@@ -16,11 +16,11 @@ Treatment can include two kinds of antibiotics, so exit through the other antibi
 
 **Winning**
 
-![screen-gif](./so_long_lyme.gif)
+![gif-win](./so_long_lyme.gif)
 
 **Losing**
 
-![screen-gif](./so_long_lose.gif)
+![gif-lose](./so_long_lose.gif)
 
 ## Installation :desktop_computer:
 
