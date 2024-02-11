@@ -17,7 +17,7 @@ static size_t	row_count(char **grid)
 	size_t	y;
 
 	y = 0;
-	while (grid[y] != '\0')
+	while (grid[y] != NULL && grid[y][0] != '\0')
 		y++;
 	return (y);
 }
