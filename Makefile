@@ -6,7 +6,7 @@
 #    By: marvin <marvin@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/27 18:11:18 by diwalaku          #+#    #+#              #
-#    Updated: 2024/02/11 14:28:47 by marvin           ###   ########.fr        #
+#    Updated: 2024/02/12 13:38:19 by marvin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ endif
 RESET = \033[0m
 YELLOW = \33[1;43m
 BLUE=\033[1;44m
-RED=\033[0;41m
+RED=\033[0;31m
 PURPLE=\033[45m
 CORAL=\033[38;2;255;127;80m
 
@@ -49,7 +49,7 @@ all: $(SO_LONG)
 
 $(SO_LONG): $(SRCOBJ) $(MLX42) $(LIBFT)
 	cc $(CFLAGS) $(SRCOBJ) $(MLXFLAGS) $(MLX42) $(LIBFT) -o $(SO_LONG)
-	@echo "\n$(PURPLE)Created executable for the $(SO_LONG) file$(RESET)\n\n"
+	@echo "\n$(PURPLE)✨ Compilation for $(SO_LONG) done ✨ $(RESET)\n\n"
 
 $(OBJDIR)%.o: $(SRCDIR)%.c
 	@mkdir -p obj
@@ -64,12 +64,12 @@ $(MLX42):
 
 clean:
 	$(RM) $(OBJDIR)
-	@echo "\n$(CORAL)Removed all .o files and its directory$(RESET)\n\n"
+	@echo "\n$(CORAL)🧹    Removed all .o files and its directory   🧹$(RESET)\n\n"
 
 fclean: clean
 	$(RM) $(SO_LONG)
 	@rm -rf MLX42/build
 	make fclean -C libft
-	@echo "\n$(RED)Cleaned up remaining files$(RESET)\n\n"
+	@echo "\n$(RED) 🗑️     Cleaned up remaining files   🗑️$(RESET)\n\n"
 
 re: fclean all
