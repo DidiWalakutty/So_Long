@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
-/*                                                        ::::::::            */
-/*   keyboard_and_messages.c                            :+:    :+:            */
-/*                                                     +:+                    */
-/*   By: diwalaku <diwalaku@student.42.fr>            +#+                     */
-/*                                                   +#+                      */
-/*   Created: 2023/08/11 17:17:40 by diwalaku      #+#    #+#                 */
-/*   Updated: 2023/09/16 11:41:28 by diwalaku      ########   odam.nl         */
+/*                                                        :::      ::::::::   */
+/*   keyboard_and_messages.c                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/11 17:17:40 by diwalaku          #+#    #+#             */
+/*   Updated: 2024/02/11 19:14:40 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ void	start_game_message(void)
 	ft_printf("\nUh-oh! Looks like you've had a not-so-friendly encounter with");
 	ft_printf(" a sneaky tick!\n\nThese little critters can carry Lyme disease ");
 	ft_printf("and other nasty co-infections.\nPrepare for a wild ride of ");
-	ft_printf("symptoms, like: pain and loss of feelings in your limbs,\n ");
-	ft_printf("a never-ending fever feeling, extreme fatigue\n");
+	ft_printf("symptoms, like: pain and loss of feelings in your limbs,\n");
+	ft_printf("a never-ending fever feeling, extreme fatigue ");
 	ft_printf("and possible heart problems.\nEven the gentlest ray of light ");
 	ft_printf("can feel like a fiery dragon's breath!\n\nNow, let's prevent ");
 	ft_printf("this with a trusty dose of antibiotics!\nBut, don't forget: ");
