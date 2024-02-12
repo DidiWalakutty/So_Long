@@ -17,7 +17,7 @@ static size_t	row_count(char **grid)
 	size_t	y;
 
 	y = 0;
-	while (grid[y] != NULL && grid[y][0] != '\0')
+	while (grid[y] != NULL && grid[y][0] != '\0')
 		y++;
 	return (y);
 }
@@ -29,6 +29,7 @@ void	map_settings(t_game *map)
 	map->count_p = 0;
 	map->count_c = 0;
 	map->count_e = 0;
+	map->total_collect = 0;
 	map->player_x = 0;
 	map->player_y = 0;
 	map->steps = 0;
