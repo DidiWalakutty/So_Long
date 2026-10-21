@@ -1,28 +1,36 @@
-# About So_Long ![antibiotic](./sprites/collectable.png)
+# 🕹️ So_Long 
+A 2D game written in C using MLX42, developed as my first graphical project at Codam (42 Network). The game features a Lyme disease-inspired theme in which the player collects antibiotics 💊 while avoiding ticks 🕷️.
 
-So_Long is the first graphical project I have made during my 42 Network curriculum.
-It's a 2D game that's made with minilibx where we use textures, sprites, tiles and linked lists.
-I succeeded with 125/100 points.
+The project explores graphics programming, map parsing, player movement, collision detection, and game-state management. Completed with the bonus features!
 
 ## Theme - Lyme Disease ![ticks](./sprites/enemy.png)
 
-The game uses Lyme disease as an educational theme, with ticks, antibiotics, and infection-inspired mechanics.
-The player must collect antibiotics while avoiding ticks. Once all required items have been collected, the player can reach the exit and complete the level.
-This project combines a simple game concept with the technical challenges of building a graphical application from scratch, including map parsing, rendering, player movement, collision detection, and game-state management.
+Instead of the original dolphin-themed assignment, I created a game inspired by Lyme disease. Navigate the map, collect all the antibiotics, avoid the ticks, and reach the exit to win!
 
-## Game Visuals
+## 🎮 Game Features
 
-**Winning**
+- **Map parsing and validation:** Checks map dimensions, boundaries, characters, and path validity.
+- **2D graphics:** Renders the game using textures, sprites, and tiles with MLX42.
+- **Player movement:** Supports directional movement, collision detection, and move counting.
+- **Collectibles and exits:** Collect all antibiotics to unlock your path to victory.
+- **Enemy mechanics:** Avoid ticks to survive.
+- **Sprite animation:** Adds animated game elements.
+- **Win and lose states:** Displays the outcome of your run.
+- **Resource management:** Cleans up allocated memory and graphics resources.
+
+## 🖼️ Gameplay
+
+**🏆 Winning**
 
 ![gif-win](./so_long_lyme.gif)
 
-**Losing**
+**💀 Losing**
 
 ![gif-lose](./so_long_lose.gif)
 
-## Installation :desktop_computer:
+## :desktop_computer: Installation 
 
-To play this game yourself, please follow the next steps:
+**Prerequisites:** A compatible environment with the required MLX42 dependencies and build tools.
 
 1.  Compile the game with the following command:
 ```
@@ -32,6 +40,12 @@ $ make
 ```
 > $ ./so_long maps/valid/map2.ber
 ````
-You can use your arrow or WASD keys.
+Replace the map path with another valid `.ber` map from the repository.
 
-Have fun!
+## ⌨️ Controls
+
+| Key                   | Action          |
+| --------------------- | --------------- |
+| `W` / `A` / `S` / `D` | Move the player |
+| `↑` / `←` / `↓` / `→` | Move the player |
+| `ESC`                 | Exit the game   |
